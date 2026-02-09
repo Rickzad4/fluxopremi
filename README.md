@@ -1,1 +1,1846 @@
-local a=game;local b=a:GetService("Players")local c=b.LocalPlayer;local d={["Baron_e08"]=true,["minepikudao"]=true,["LaluluDoVine"]=true}if not d[c.Name]then warn("❌ "..c.Name)task.wait(1)c:Kick("❌")return end;print("✅:",c.Name)local e=a:GetService("RunService")local f=a:GetService("UserInputService")local g=a:GetService("Workspace")local h=a:GetService("TweenService")local i=a:GetService("Lighting")local j=a:GetService("StarterGui")local k=c:WaitForChild("PlayerGui")if k:FindFirstChild("FluxoHub")then k.FluxoHub:Destroy()end;local l=Instance.new("ScreenGui",k)l.Name="FluxoHub"l.ResetOnSpawn=false;local m=Instance.new("Frame",l)m.Size=UDim2.new(0,600,0,360)m.Position=UDim2.new(0.5,-300,0.5,-180)m.BackgroundColor3=Color3.fromRGB(10,10,10)Instance.new("UICorner",m).CornerRadius=UDim.new(0,22)local n=Instance.new("ImageLabel",m)n.Size=UDim2.new(1,0,1,0)n.BackgroundTransparency=1;n.Image="rbxassetid://1217190223"n.ImageTransparency=0.15;local o=Instance.new("TextLabel",m)o.Size=UDim2.new(1,0,0,50)o.BackgroundTransparency=1;o.Text="F L U X O   H U B"o.Font=Enum.Font.GothamBold;o.TextSize=30;o.TextColor3=Color3.fromRGB(170,0,255)local p=Instance.new("TextButton",m)p.Size=UDim2.new(1,0,0,20)p.Position=UDim2.new(0,0,0,45)p.BackgroundTransparency=1;p.Text="discord.gg/G7upZYU58Q"p.Font=Enum.Font.Gotham;p.TextSize=14;p.TextColor3=Color3.fromRGB(170,0,255)p.MouseButton1Click:Connect(function()setclipboard("discord.gg/G7upZYU58Q")end)local q=Instance.new("Frame",m)q.Size=UDim2.new(1,0,0,2)q.Position=UDim2.new(0,0,0,70)q.BackgroundColor3=Color3.fromRGB(170,0,255)q.BorderSizePixel=0;local r=Instance.new("Frame",m)r.Size=UDim2.new(0,170,1,-70)r.Position=UDim2.new(0,0,0,70)r.BackgroundTransparency=1;local s=Instance.new("Frame",m)s.Size=UDim2.new(0,2,1,-70)s.Position=UDim2.new(0,170,0,70)s.BackgroundColor3=Color3.fromRGB(170,0,255)s.BorderSizePixel=0;local t={"COMBAT","MOVEMENT","VISUALS","MISC","CONFIG"}for u,v in ipairs(t)do local w=Instance.new("TextButton",r)w.Size=UDim2.new(1,0,0,45)w.Position=UDim2.new(0,0,0,(u-1)*50)w.BackgroundTransparency=1;w.Text=v;w.Font=Enum.Font.Gotham;w.TextSize=18;w.TextColor3=Color3.fromRGB(170,0,255)end;local x=false;local y=Instance.new("Frame",m)y.Size=UDim2.new(0,260,0,50)y.Position=UDim2.new(0,230,0,130)y.BackgroundTransparency=1;y.Visible=false;local z=Instance.new("TextLabel",y)z.Size=UDim2.new(0,150,1,0)z.BackgroundTransparency=1;z.Text="AUTO BAT"z.Font=Enum.Font.Gotham;z.TextSize=18;z.TextColor3=Color3.fromRGB(170,0,255)z.TextXAlignment=Enum.TextXAlignment.Left;local A=Instance.new("TextButton",y)A.Size=UDim2.new(0,46,0,22)A.Position=UDim2.new(1,-50,0.5,-11)A.Text=""A.BackgroundColor3=Color3.fromRGB(40,40,40)A.AutoButtonColor=false;Instance.new("UICorner",A).CornerRadius=UDim.new(1,0)local B=Instance.new("Frame",A)B.Size=UDim2.new(0,18,0,18)B.Position=UDim2.new(0,2,0.5,-9)B.BackgroundColor3=Color3.fromRGB(120,120,120)Instance.new("UICorner",B).CornerRadius=UDim.new(1,0)local function C()if x then A.BackgroundColor3=Color3.fromRGB(170,0,255)B.Position=UDim2.new(1,-20,0.5,-9)else A.BackgroundColor3=Color3.fromRGB(40,40,40)B.Position=UDim2.new(0,2,0.5,-9)end end;A.MouseButton1Click:Connect(function()x=not x;C()end)C()task.spawn(function()while true do if x then local D=c.Character;if D and D:FindFirstChild("HumanoidRootPart")then local E=D:FindFirstChild("Bat")or D:FindFirstChild("Taco")if not E then local F=c.Backpack:FindFirstChild("Bat")or c.Backpack:FindFirstChild("Taco")if F then F.Parent=D;E=F end end;if E then E:Activate()end end end;task.wait(0.05)end end)local G,H,I;local function J(K)if not K then return end;G=K;H=K:WaitForChild("HumanoidRootPart")I=K:WaitForChild("Humanoid")end;if c.Character then J(c.Character)end;c.CharacterAdded:Connect(J)local L=Instance.new("Frame",m)L.Size=UDim2.new(0,320,0,280)L.Position=UDim2.new(0,230,0,100)L.BackgroundTransparency=1;L.Visible=false;local M=60;local N=30;local O=false;local P=false;local Q=false;local R=false;local S=30;local T=nil;local U={}local function V()for W,X in pairs(U)do local Y=(W.index==1 and O)or(W.index==2 and P)X.switch.BackgroundColor3=Y and Color3.fromRGB(170,0,255)or Color3.fromRGB(40,40,40)X.ball.Position=Y and UDim2.new(1,-20,0.5,-9)or UDim2.new(0,2,0.5,-9)end end;local function Z(_,a0,a1)local a2=Instance.new("Frame",L)a2.Size=UDim2.new(0,300,0,45)a2.Position=UDim2.new(0,0,0,a0)a2.BackgroundTransparency=1;local a3=Instance.new("TextLabel",a2)a3.Size=UDim2.new(0,100,1,0)a3.BackgroundTransparency=1;a3.Text=_;a3.Font=Enum.Font.Gotham;a3.TextSize=18;a3.TextColor3=Color3.fromRGB(170,0,255)a3.TextXAlignment=Enum.TextXAlignment.Left;local a4=Instance.new("TextButton",a2)a4.Size=UDim2.new(0,25,1,0)a4.Position=UDim2.new(0,110,0,0)a4.BackgroundTransparency=1;a4.Text="-"a4.Font=Enum.Font.GothamBold;a4.TextSize=20;a4.TextColor3=Color3.fromRGB(170,0,255)local a5=Instance.new("TextLabel",a2)a5.Size=UDim2.new(0,40,1,0)a5.Position=UDim2.new(0,140,0,0)a5.BackgroundTransparency=1;a5.Font=Enum.Font.Gotham;a5.TextSize=16;a5.TextColor3=Color3.fromRGB(170,0,255)local a6=Instance.new("TextButton",a2)a6.Size=UDim2.new(0,25,1,0)a6.Position=UDim2.new(0,185,0,0)a6.BackgroundTransparency=1;a6.Text="+"a6.Font=Enum.Font.GothamBold;a6.TextSize=20;a6.TextColor3=Color3.fromRGB(170,0,255)local a7=Instance.new("TextButton",a2)a7.Size=UDim2.new(0,46,0,22)a7.Position=UDim2.new(1,-50,0.5,-11)a7.Text=""a7.BackgroundColor3=Color3.fromRGB(40,40,40)a7.AutoButtonColor=false;Instance.new("UICorner",a7).CornerRadius=UDim.new(1,0)local a8=Instance.new("Frame",a7)a8.Size=UDim2.new(0,18,0,18)a8.Position=UDim2.new(0,2,0.5,-9)a8.BackgroundColor3=Color3.fromRGB(120,120,120)Instance.new("UICorner",a8).CornerRadius=UDim.new(1,0)local function a9()local aa=a1==1 and M or N;a5.Text=tostring(aa)local ab=(a1==1 and O)or(a1==2 and P)a7.BackgroundColor3=ab and Color3.fromRGB(170,0,255)or Color3.fromRGB(40,40,40)a8.Position=ab and UDim2.new(1,-20,0.5,-9)or UDim2.new(0,2,0.5,-9)end;a7.MouseButton1Click:Connect(function()if a1==1 then O=not O;P=false else P=not P;O=false end;V()end)a4.MouseButton1Click:Connect(function()if a1==1 then M=math.max(5,M-5)else N=math.max(5,N-5)end;a9()end)a6.MouseButton1Click:Connect(function()if a1==1 then M=M+5 else N=N+5 end;a9()end)table.insert(U,{index=a1,switch=a7,ball=a8,frame=a2})a9()end;Z("SPEED",0,1)Z("SPEED 2",45,2)local function ac()local ad=Instance.new("Frame",L)ad.Size=UDim2.new(0,300,0,45)ad.Position=UDim2.new(0,0,0,90)ad.BackgroundTransparency=1;local ae=Instance.new("TextLabel",ad)ae.Size=UDim2.new(0,150,1,0)ae.BackgroundTransparency=1;ae.Text="JUMP"ae.Font=Enum.Font.Gotham;ae.TextSize=18;ae.TextColor3=Color3.fromRGB(170,0,255)ae.TextXAlignment=Enum.TextXAlignment.Left;local af=Instance.new("TextButton",ad)af.Size=UDim2.new(0,46,0,22)af.Position=UDim2.new(1,-50,0.5,-11)af.Text=""af.BackgroundColor3=Color3.fromRGB(40,40,40)af.AutoButtonColor=false;Instance.new("UICorner",af).CornerRadius=UDim.new(1,0)local ag=Instance.new("Frame",af)ag.Size=UDim2.new(0,18,0,18)ag.Position=UDim2.new(0,2,0.5,-9)ag.BackgroundColor3=Color3.fromRGB(120,120,120)Instance.new("UICorner",ag).CornerRadius=UDim.new(1,0)local function ah()af.BackgroundColor3=Q and Color3.fromRGB(170,0,255)or Color3.fromRGB(40,40,40)ag.Position=Q and UDim2.new(1,-20,0.5,-9)or UDim2.new(0,2,0.5,-9)end;af.MouseButton1Click:Connect(function()Q=not Q;ah()end)ah()end;ac()local function ai()local aj=Instance.new("Frame",L)aj.Size=UDim2.new(0,300,0,45)aj.Position=UDim2.new(0,0,0,135)aj.BackgroundTransparency=1;local ak=Instance.new("TextLabel",aj)ak.Size=UDim2.new(0,100,1,0)ak.BackgroundTransparency=1;ak.Text="HELICOPTERO"ak.Font=Enum.Font.Gotham;ak.TextSize=18;ak.TextColor3=Color3.fromRGB(170,0,255)ak.TextXAlignment=Enum.TextXAlignment.Left;local al=Instance.new("TextButton",aj)al.Size=UDim2.new(0,25,1,0)al.Position=UDim2.new(0,110,0,0)al.BackgroundTransparency=1;al.Text="-"al.Font=Enum.Font.GothamBold;al.TextSize=20;al.TextColor3=Color3.fromRGB(170,0,255)local am=Instance.new("TextLabel",aj)am.Size=UDim2.new(0,40,1,0)am.Position=UDim2.new(0,140,0,0)am.BackgroundTransparency=1;am.Font=Enum.Font.Gotham;am.TextSize=16;am.TextColor3=Color3.fromRGB(170,0,255)local an=Instance.new("TextButton",aj)an.Size=UDim2.new(0,25,1,0)an.Position=UDim2.new(0,185,0,0)an.BackgroundTransparency=1;an.Text="+"an.Font=Enum.Font.GothamBold;an.TextSize=20;an.TextColor3=Color3.fromRGB(170,0,255)local ao=Instance.new("TextButton",aj)ao.Size=UDim2.new(0,46,0,22)ao.Position=UDim2.new(1,-50,0.5,-11)ao.Text=""ao.BackgroundColor3=Color3.fromRGB(40,40,40)ao.AutoButtonColor=false;Instance.new("UICorner",ao).CornerRadius=UDim.new(1,0)local ap=Instance.new("Frame",ao)ap.Size=UDim2.new(0,18,0,18)ap.Position=UDim2.new(0,2,0.5,-9)ap.BackgroundColor3=Color3.fromRGB(120,120,120)Instance.new("UICorner",ap).CornerRadius=UDim.new(1,0)local function aq()am.Text=tostring(S)ao.BackgroundColor3=R and Color3.fromRGB(170,0,255)or Color3.fromRGB(40,40,40)ap.Position=R and UDim2.new(1,-20,0.5,-9)or UDim2.new(0,2,0.5,-9)end;ao.MouseButton1Click:Connect(function()R=not R;local ar=c.Character;if not ar then R=false;aq()return end;local as=ar:FindFirstChild("HumanoidRootPart")if not as then R=false;aq()return end;if R then if T then T:Destroy()end;T=Instance.new("BodyAngularVelocity")T.MaxTorque=Vector3.new(0,math.huge,0)T.AngularVelocity=Vector3.new(0,S,0)T.Parent=as;print("🚁 "..S)else if T then T:Destroy()T=nil end;print("🚁")end;aq()end)al.MouseButton1Click:Connect(function()S=math.max(5,S-5)aq()if R and T then T.AngularVelocity=Vector3.new(0,S,0)print("🚁 "..S)end end)an.MouseButton1Click:Connect(function()S=S+5;aq()if R and T then T.AngularVelocity=Vector3.new(0,S,0)print("🚁 "..S)end end)aq()end;ai()local at=false;local au=nil;task.spawn(function()local av=c;local aw=false;local ax={}local ay={}local function az()local aA=c.Character;if not aA then return false end;local aB=aA:FindFirstChildOfClass("Humanoid")local aC=aA:FindFirstChild("HumanoidRootPart")if not aB or not aC then return false end;ay={character=aA,humanoid=aB,root=aC}return true end;local function aD()if not ay.humanoid then return false end;local aE=ay.humanoid;local aF=aE:GetState()local aG={[Enum.HumanoidStateType.Physics]=true,[Enum.HumanoidStateType.Ragdoll]=true,[Enum.HumanoidStateType.FallingDown]=true}if aG[aF]then return true end;local aH=av:GetAttribute("RagdollEndTime")if aH then local aI=g:GetServerTimeNow()if(aH-aI)>0 then return true end end;return false end;local function aJ()if not ay.humanoid or not ay.root then return end;local aK=ay.humanoid;local aL=ay.root;pcall(function()local aI=g:GetServerTimeNow()av:SetAttribute("RagdollEndTime",aI-1)end)if aK.Health>0 then pcall(function()aK:ChangeState(Enum.HumanoidStateType.Running)end)end;pcall(function()if aL.Anchored then aL.Anchored=false end;aL.AssemblyLinearVelocity=Vector3.zero;aL.AssemblyAngularVelocity=Vector3.zero end)end;local function aM()if not ay.character then return end;for aN,aO in ipairs(ay.character:GetDescendants())do if aO:IsA("Motor6D")then if not aO.Enabled then pcall(function()aO.Enabled=true end)end end end end;local function aP()if not ay.humanoid then return end;for aQ,aR in ipairs(ax)do if aR.Name=="Camera"then pcall(function()aR.Connection:Disconnect()end)end end;local aS=e.Heartbeat:Connect(function()if not ay.humanoid then return end;local aT=g.CurrentCamera;if aT and aT.CameraSubject~=ay.humanoid then aT.CameraSubject=ay.humanoid end end)table.insert(ax,{Name="Camera",Connection=aS})end;local function aU()if not ay.character then return end;for aQ,aR in ipairs(ax)do if aR.Name=="Descendant"then pcall(function()aR.Connection:Disconnect()end)end end;local aV=ay.character.DescendantRemoving:Connect(function(aW)if not _G.AntiRag then return end;if aW:IsA("Motor6D")then if not aW.Parent then local aX=aW:Clone()pcall(function()aX.Parent=aW.Parent end)end end end)table.insert(ax,{Name="Descendant",Connection=aV})end;local function aY()while aw and ay.humanoid do task.wait()if not _G.AntiRag then task.wait(0.5)continue end;if aD()then aJ()aM()end end end;local function aZ(a_)for aQ,aR in ipairs(ax)do pcall(function()aR.Connection:Disconnect()end)end;ax={}task.wait(0.5)if az()then aP()aU()aw=true;task.spawn(aY)end end;_G.AntiRag=at;if az()then aP()aU()aw=true;task.spawn(aY)end;av.CharacterAdded:Connect(aZ)au=function(b0)_G.AntiRag=b0;at=b0;if b0 then print("✅")else print("❌")end end;au(at)end)local function b1()local b2=Instance.new("Frame",L)b2.Size=UDim2.new(0,300,0,45)b2.Position=UDim2.new(0,0,0,180)b2.BackgroundTransparency=1;local b3=Instance.new("TextLabel",b2)b3.Size=UDim2.new(0,150,1,0)b3.BackgroundTransparency=1;b3.Text="ANT RAGDOLL"b3.Font=Enum.Font.Gotham;b3.TextSize=18;b3.TextColor3=Color3.fromRGB(170,0,255)b3.TextXAlignment=Enum.TextXAlignment.Left;local b4=Instance.new("TextButton",b2)b4.Size=UDim2.new(0,46,0,22)b4.Position=UDim2.new(1,-50,0.5,-11)b4.Text=""b4.BackgroundColor3=Color3.fromRGB(40,40,40)b4.AutoButtonColor=false;Instance.new("UICorner",b4).CornerRadius=UDim.new(1,0)local b5=Instance.new("Frame",b4)b5.Size=UDim2.new(0,18,0,18)b5.Position=UDim2.new(0,2,0.5,-9)b5.BackgroundColor3=Color3.fromRGB(120,120,120)Instance.new("UICorner",b5).CornerRadius=UDim.new(1,0)local function b6()b4.BackgroundColor3=at and Color3.fromRGB(170,0,255)or Color3.fromRGB(40,40,40)b5.Position=at and UDim2.new(1,-20,0.5,-9)or UDim2.new(0,2,0.5,-9)end;b4.MouseButton1Click:Connect(function()at=not at;if au then au(at)end;b6()end)b6()end;b1()f.InputBegan:Connect(function(b7,b8)if b8 then return end;if b7.KeyCode==Enum.KeyCode.H then at=not at;if au then au(at)end;for b9,ba in pairs(L:GetChildren())do if ba:IsA("Frame")then local bb=ba:FindFirstChildOfClass("TextLabel")if bb and bb.Text=="ANT RAGDOLL"then local bc=ba:FindFirstChildOfClass("TextButton")if bc then bc.BackgroundColor3=at and Color3.fromRGB(170,0,255)or Color3.fromRGB(40,40,40)local bd=bc:FindFirstChildOfClass("Frame")if bd then bd.Position=at and UDim2.new(1,-20,0.5,-9)or UDim2.new(0,2,0.5,-9)end end end end end end end)local be=Instance.new("Frame",m)be.Size=UDim2.new(0,320,0,280)be.Position=UDim2.new(0,230,0,100)be.BackgroundTransparency=1;be.Visible=false;local bf=false;local bg=false;local bh=false;local bi=nil;local bj="Base"local bk=0.7;local function bl()for bm,bn in pairs(g:GetDescendants())do if bn:IsA("BasePart")and bn.Name:lower():find(bj:lower())then bn.LocalTransparencyModifier=bk end end end;local function bo()for bp,bq in pairs(g:GetDescendants())do if bq:IsA("BasePart")and bq.Name:lower():find(bj:lower())then bq.LocalTransparencyModifier=0 end end end;local function br()if bf then return end;bf=true;bl()bi=g.DescendantAdded:Connect(function(bs)task.wait(0.1)if bf and bs:IsA("BasePart")and bs.Name:lower():find(bj:lower())then bs.LocalTransparencyModifier=bk end end)print("👁️")end;local function bt()if not bf then return end;bf=false;bo()if bi then bi:Disconnect()bi=nil end;print("👁️")end;local function bu()local bv=Instance.new("Frame",be)bv.Size=UDim2.new(0,300,0,45)bv.Position=UDim2.new(0,0,0,0)bv.BackgroundTransparency=1;local bw=Instance.new("TextLabel",bv)bw.Size=UDim2.new(0,150,1,0)bw.BackgroundTransparency=1;bw.Text="XRAY"bw.Font=Enum.Font.Gotham;bw.TextSize=18;bw.TextColor3=Color3.fromRGB(170,0,255)bw.TextXAlignment=Enum.TextXAlignment.Left;local bx=Instance.new("TextButton",bv)bx.Size=UDim2.new(0,46,0,22)bx.Position=UDim2.new(1,-50,0.5,-11)bx.Text=""bx.BackgroundColor3=Color3.fromRGB(40,40,40)bx.AutoButtonColor=false;Instance.new("UICorner",bx).CornerRadius=UDim.new(1,0)local by=Instance.new("Frame",bx)by.Size=UDim2.new(0,18,0,18)by.Position=UDim2.new(0,2,0.5,-9)by.BackgroundColor3=Color3.fromRGB(120,120,120)Instance.new("UICorner",by).CornerRadius=UDim.new(1,0)local function bz()bx.BackgroundColor3=bf and Color3.fromRGB(170,0,255)or Color3.fromRGB(40,40,40)by.Position=bf and UDim2.new(1,-20,0.5,-9)or UDim2.new(0,2,0.5,-9)end;bx.MouseButton1Click:Connect(function()if bf then bt()else br()end;bz()end)bz()end;bu()local bA={}local bB={}local function bC()local bD=Instance.new("Frame",be)bD.Size=UDim2.new(0,300,0,45)bD.Position=UDim2.new(0,0,0,45)bD.BackgroundTransparency=1;local bE=Instance.new("TextLabel",bD)bE.Size=UDim2.new(0,150,1,0)bE.BackgroundTransparency=1;bE.Text="ESP ALL"bE.Font=Enum.Font.Gotham;bE.TextSize=18;bE.TextColor3=Color3.fromRGB(170,0,255)bE.TextXAlignment=Enum.TextXAlignment.Left;local bF=Instance.new("TextButton",bD)bF.Size=UDim2.new(0,46,0,22)bF.Position=UDim2.new(1,-50,0.5,-11)bF.Text=""bF.BackgroundColor3=Color3.fromRGB(40,40,40)bF.AutoButtonColor=false;Instance.new("UICorner",bF).CornerRadius=UDim.new(1,0)local bG=Instance.new("Frame",bF)bG.Size=UDim2.new(0,18,0,18)bG.Position=UDim2.new(0,2,0.5,-9)bG.BackgroundColor3=Color3.fromRGB(120,120,120)Instance.new("UICorner",bG).CornerRadius=UDim.new(1,0)local function bH()bF.BackgroundColor3=bg and Color3.fromRGB(170,0,255)or Color3.fromRGB(40,40,40)bG.Position=bg and UDim2.new(1,-20,0.5,-9)or UDim2.new(0,2,0.5,-9)end;local function bI(bJ)if not bJ or not bJ:FindFirstChild("HumanoidRootPart")then return end;local bK=Instance.new("Highlight")bK.Adornee=bJ;bK.FillColor=Color3.fromRGB(170,0,255)bK.OutlineColor=Color3.fromRGB(170,0,255)bK.DepthMode=Enum.HighlightDepthMode.AlwaysOnTop;bK.Parent=bJ;table.insert(bA,bK)local bL=Instance.new("BillboardGui")bL.Size=UDim2.new(0,100,0,50)bL.Adornee=bJ:FindFirstChild("Head")bL.AlwaysOnTop=true;bL.Parent=bJ;local bM=Instance.new("TextLabel")bM.BackgroundTransparency=1;bM.Size=UDim2.new(1,0,1,0)bM.Font=Enum.Font.Gotham;bM.Text=bJ.Name;bM.TextColor3=Color3.fromRGB(170,0,255)bM.TextScaled=true;bM.TextStrokeTransparency=0.5;bM.Parent=bL;table.insert(bB,{bL,bM})end;local function bN()bg=not bg;if bg then bH()for b9,av in ipairs(b:GetPlayers())do if av~=c and av.Character then bI(av.Character)end end;b.PlayerAdded:Connect(function(bO)bO.CharacterAdded:Connect(function(bJ)if bg then bI(bJ)end end)end)else bH()for b9,bK in ipairs(bA)do bK:Destroy()end;bA={}for b9,bP in ipairs(bB)do if bP[1]then bP[1]:Destroy()end end;bB={}end end;bF.MouseButton1Click:Connect(bN)bH()end;bC()local function bQ()local bR=Instance.new("Frame",be)bR.Size=UDim2.new(0,300,0,45)bR.Position=UDim2.new(0,0,0,90)bR.BackgroundTransparency=1;local bS=Instance.new("TextLabel",bR)bS.Size=UDim2.new(0,150,1,0)bS.BackgroundTransparency=1;bS.Text="TIMER ESP"bS.Font=Enum.Font.Gotham;bS.TextSize=18;bS.TextColor3=Color3.fromRGB(170,0,255)bS.TextXAlignment=Enum.TextXAlignment.Left;local bT=Instance.new("TextButton",bR)bT.Size=UDim2.new(0,46,0,22)bT.Position=UDim2.new(1,-50,0.5,-11)bT.Text=""bT.BackgroundColor3=Color3.fromRGB(40,40,40)bT.AutoButtonColor=false;Instance.new("UICorner",bT).CornerRadius=UDim.new(1,0)local bU=Instance.new("Frame",bT)bU.Size=UDim2.new(0,18,0,18)bU.Position=UDim2.new(0,2,0.5,-9)bU.BackgroundColor3=Color3.fromRGB(120,120,120)Instance.new("UICorner",bU).CornerRadius=UDim.new(1,0)local function bV()bT.BackgroundColor3=bh and Color3.fromRGB(170,0,255)or Color3.fromRGB(40,40,40)bU.Position=bh and UDim2.new(1,-20,0.5,-9)or UDim2.new(0,2,0.5,-9)end;local bW={}local bX={}local function bY(bZ)for b9,b_ in ipairs(bZ:GetDescendants())do if b_.Name:lower():find("timer")or b_.Name:lower():find("bomb")or b_:IsA("TextLabel")and b_.Text:lower():find("timer")then return b_ end end;return nil end;local function b0(b1,b2,b3)if not b2 or not b3 then return end;local b4=Instance.new("BillboardGui")b4.Name="TimerESP_"..b1.Name;b4.AlwaysOnTop=true;b4.Size=UDim2.new(0,300,0,80)b4.StudsOffset=Vector3.new(0,8,0)b4.MaxDistance=500;local b5=Instance.new("TextLabel",b4)b5.BackgroundTransparency=1;b5.Size=UDim2.new(1,0,0.5,0)b5.Text=b1.Name.."'s Base"b5.TextColor3=Color3.fromRGB(0,255,255)b5.TextSize=16;b5.Font=Enum.Font.GothamBold;local b6=Instance.new("TextLabel",b4)b6.BackgroundTransparency=1;b6.Size=UDim2.new(1,0,0.5,0)b6.Position=UDim2.new(0,0,0.5,0)b6.Text="⏰ TIMER"b6.TextColor3=Color3.fromRGB(255,255,0)b6.TextSize=18;b6.Font=Enum.Font.GothamBold;if b3:IsA("TextLabel")or b3:IsA("TextButton")or b3:IsA("TextBox")then local b7;b7=e.Heartbeat:Connect(function()if bh and b4 and b4.Parent then b6.Text="⏰ "..tostring(b3.Text)else if b7 then b7:Disconnect()end end end)end;local b8=b2.PrimaryPart or b2:FindFirstChildWhichIsA("BasePart")if b8 then b4.Adornee=b8;b4.Parent=b8 else local b9=Instance.new("Part")b9.Name="TempESPAnchor"b9.Size=Vector3.new(1,1,1)b9.Transparency=1;b9.CanCollide=false;b9.Anchored=true;b9.Position=b2:GetPivot().Position+Vector3.new(0,5,0)b9.Parent=b2;b4.Adornee=b9;b4.Parent=b9 end;bX[b1]=b4;bW[b1]={base=b2,timer=b3}end;local function ca()for b9,b4 in pairs(bX)do if b4 then b4:Destroy()end end;bX={}bW={}end;local function cb()if bh then ca()for b9,av in ipairs(b:GetPlayers())do if av~=c then local b2,b3=bY(av)if b2 and b3 then b0(av,b2,b3)end end end;b.PlayerAdded:Connect(function(bO)if bh and bO~=c then task.wait(2)local b2,b3=bY(bO)if b2 and b3 then b0(bO,b2,b3)end end end)b.PlayerRemoving:Connect(function(bc)if bX[bc]then bX[bc]:Destroy()bX[bc]=nil;bW[bc]=nil end end)g.DescendantAdded:Connect(function(cc)if bh and cc:IsA("Model")then for b9,av in ipairs(b:GetPlayers())do if av~=c and not bW[av]then if cc.Name:lower():find(av.Name:lower())or cc.Name:lower():find("base")then local b3=bY(cc)if b3 then b0(av,cc,b3)end end end end end end)else ca()end end;bT.MouseButton1Click:Connect(function()bh=not bh;cb()bV()print(bh and"⏰"or"⏰")end)bV()end;bQ()local cd=false;local ce={QualityLevel=nil,GlobalShadows=nil,FogEnd=nil,EnvironmentDiffuseScale=nil,EnvironmentSpecularScale=nil,PartMaterials={},PartCastShadow={},ParticleEnabled={},TrailEnabled={},SmokeEnabled={},FireEnabled={}}local function cf()ce.QualityLevel=settings().Rendering.QualityLevel;ce.GlobalShadows=i.GlobalShadows;ce.FogEnd=i.FogEnd;ce.EnvironmentDiffuseScale=i.EnvironmentDiffuseScale;ce.EnvironmentSpecularScale=i.EnvironmentSpecularScale;ce.PartMaterials={}ce.PartCastShadow={}ce.ParticleEnabled={}ce.TrailEnabled={}ce.SmokeEnabled={}ce.FireEnabled={}for b9,cc in pairs(g:GetDescendants())do if cc:IsA("BasePart")then ce.PartMaterials[cc]=cc.Material;ce.PartCastShadow[cc]=cc.CastShadow elseif cc:IsA("ParticleEmitter")then ce.ParticleEnabled[cc]=cc.Enabled elseif cc:IsA("Trail")then ce.TrailEnabled[cc]=cc.Enabled elseif cc:IsA("Smoke")then ce.SmokeEnabled[cc]=cc.Enabled elseif cc:IsA("Fire")then ce.FireEnabled[cc]=cc.Enabled end end;print("✅")end;local function cg()if cd then return end;cf()cd=true;print("🧊")settings().Rendering.QualityLevel=Enum.QualityLevel.Level01;i.GlobalShadows=false;i.FogEnd=9e9;i.EnvironmentDiffuseScale=0;i.EnvironmentSpecularScale=0;for b9,cc in pairs(g:GetDescendants())do if cc:IsA("BasePart")then cc.Material=Enum.Material.Plastic;cc.CastShadow=false elseif cc:IsA("ParticleEmitter")or cc:IsA("Trail")or cc:IsA("Smoke")or cc:IsA("Fire")then cc.Enabled=false end end;pcall(function()j:SetCore("SendNotification",{Title="Anti Lag",Text="Anti Lag ATIVADO",Duration=3})end)end;local function ch()if not cd then return end;print("🧊")if ce.QualityLevel then settings().Rendering.QualityLevel=ce.QualityLevel else settings().Rendering.QualityLevel=Enum.QualityLevel.Level21 end;if ce.GlobalShadows~=nil then i.GlobalShadows=ce.GlobalShadows else i.GlobalShadows=true end;if ce.FogEnd then i.FogEnd=ce.FogEnd else i.FogEnd=100000 end;if ce.EnvironmentDiffuseScale then i.EnvironmentDiffuseScale=ce.EnvironmentDiffuseScale else i.EnvironmentDiffuseScale=1 end;if ce.EnvironmentSpecularScale then i.EnvironmentSpecularScale=ce.EnvironmentSpecularScale else i.EnvironmentSpecularScale=1 end;for b9,cc in pairs(g:GetDescendants())do if cc:IsA("BasePart")then if ce.PartMaterials[cc]then cc.Material=ce.PartMaterials[cc]else cc.Material=Enum.Material.Plastic end;if ce.PartCastShadow[cc]~=nil then cc.CastShadow=ce.PartCastShadow[cc]else cc.CastShadow=true end elseif cc:IsA("ParticleEmitter")then if ce.ParticleEnabled[cc]~=nil then cc.Enabled=ce.ParticleEnabled[cc]else cc.Enabled=true end elseif cc:IsA("Trail")then if ce.TrailEnabled[cc]~=nil then cc.Enabled=ce.TrailEnabled[cc]else cc.Enabled=true end elseif cc:IsA("Smoke")then if ce.SmokeEnabled[cc]~=nil then cc.Enabled=ce.SmokeEnabled[cc]else cc.Enabled=true end elseif cc:IsA("Fire")then if ce.FireEnabled[cc]~=nil then cc.Enabled=ce.FireEnabled[cc]else cc.Enabled=true end end end;cd=false;pcall(function()j:SetCore("SendNotification",{Title="Anti Lag",Text="Configurações restauradas",Duration=3})end)print("✅")end;local function ci()local cj=Instance.new("Frame",be)cj.Size=UDim2.new(0,300,0,45)cj.Position=UDim2.new(0,0,0,135)cj.BackgroundTransparency=1;local ck=Instance.new("TextLabel",cj)ck.Size=UDim2.new(0,150,1,0)ck.BackgroundTransparency=1;ck.Text="ANTI LAG"ck.Font=Enum.Font.Gotham;ck.TextSize=18;ck.TextColor3=Color3.fromRGB(170,0,255)ck.TextXAlignment=Enum.TextXAlignment.Left;local cl=Instance.new("TextButton",cj)cl.Size=UDim2.new(0,46,0,22)cl.Position=UDim2.new(1,-50,0.5,-11)cl.Text=""cl.BackgroundColor3=Color3.fromRGB(40,40,40)cl.AutoButtonColor=false;Instance.new("UICorner",cl).CornerRadius=UDim.new(1,0)local cm=Instance.new("Frame",cl)cm.Size=UDim2.new(0,18,0,18)cm.Position=UDim2.new(0,2,0.5,-9)cm.BackgroundColor3=Color3.fromRGB(120,120,120)Instance.new("UICorner",cm).CornerRadius=UDim.new(1,0)local function cn()cl.BackgroundColor3=cd and Color3.fromRGB(170,0,255)or Color3.fromRGB(40,40,40)cm.Position=cd and UDim2.new(1,-20,0.5,-9)or UDim2.new(0,2,0.5,-9)end;cl.MouseButton1Click:Connect(function()if cd then ch()else cg()end;cn()end)cn()end;ci()local co=Instance.new("Frame",m)co.Size=UDim2.new(0,320,0,280)co.Position=UDim2.new(0,230,0,100)co.BackgroundTransparency=1;co.Visible=false;local cp=false;local cq=nil;local cr=game:GetService("ProximityPromptService")local function cs()if cq then return end;print("🔥")cq={Running=true,Connections={},TARGET_TOOL="Flying Carpet"}local function ct()local bJ=c.Character;if not bJ then return end;if bJ:FindFirstChild(cq.TARGET_TOOL)then return end;local cu=c:FindFirstChild("Backpack")if cu then local cv=cu:FindFirstChild(cq.TARGET_TOOL)if cv then cv.Parent=bJ end end end;local function cw(cx)if not cq or not cq.Running then return end;local cy=(cx.ActionText..cx.ObjectText):lower()if not(cy:find("grab")or cy:find("take")or cy:find("steal"))then return end;task.spawn(function()local cz=false;while cx and cx.Parent and cq and cq.Running do task.wait(0.1)local cA;if cx.Parent:IsA("Attachment")then cA=cx.Parent.WorldPosition elseif cx.Parent:IsA("BasePart")then cA=cx.Parent.Position elseif cx.Parent:IsA("Model")then cA=cx.Parent:GetPivot().Position end;if not cA then continue end;local cB=c:DistanceFromCharacter(cA)local cC=cx.MaxActivationDistance or 10;if cB<=cC then if not cz then ct()task.wait(0.05)pcall(function()cx:InputHoldBegin()end)cz=true end else if cz then pcall(function()cx:InputHoldEnd()end)cz=false end end end end)end;for b9,cx in pairs(g:GetDescendants())do if cx:IsA("ProximityPrompt")then cw(cx)end end;table.insert(cq.Connections,g.DescendantAdded:Connect(function(cc)if cc:IsA("ProximityPrompt")then cw(cc)end end))table.insert(cq.Connections,cr.PromptShown:Connect(function(cx)cw(cx)end))end;local function cD()if not cq then return end;print("🔥")cq.Running=false;for b9,cE in ipairs(cq.Connections)do pcall(function()cE:Disconnect()end)end;cq.Connections={}cq=nil end;local function cF()local cG=Instance.new("Frame",co)cG.Size=UDim2.new(0,300,0,45)cG.Position=UDim2.new(0,0,0,0)cG.BackgroundTransparency=1;local cH=Instance.new("TextLabel",cG)cH.Size=UDim2.new(0,150,1,0)cH.BackgroundTransparency=1;cH.Text="AUTO GRAB"cH.Font=Enum.Font.Gotham;cH.TextSize=18;cH.TextColor3=Color3.fromRGB(170,0,255)cH.TextXAlignment=Enum.TextXAlignment.Left;local cI=Instance.new("TextButton",cG)cI.Size=UDim2.new(0,46,0,22)cI.Position=UDim2.new(1,-50,0.5,-11)cI.Text=""cI.BackgroundColor3=Color3.fromRGB(40,40,40)cI.AutoButtonColor=false;Instance.new("UICorner",cI).CornerRadius=UDim.new(1,0)local cJ=Instance.new("Frame",cI)cJ.Size=UDim2.new(0,18,0,18)cJ.Position=UDim2.new(0,2,0.5,-9)cJ.BackgroundColor3=Color3.fromRGB(120,120,120)Instance.new("UICorner",cJ).CornerRadius=UDim.new(1,0)local function cK()cI.BackgroundColor3=cp and Color3.fromRGB(170,0,255)or Color3.fromRGB(40,40,40)cJ.Position=cp and UDim2.new(1,-20,0.5,-9)or UDim2.new(0,2,0.5,-9)end;cI.MouseButton1Click:Connect(function()cp=not cp;if cp then cs()else cD()end;cK()end)cK()end;cF()f.InputBegan:Connect(function(b7,b8)if b8 then return end;if b7.KeyCode==Enum.KeyCode.G then cp=not cp;if cp then cs()else cD()end;for b9,cG in pairs(co:GetChildren())do if cG:IsA("Frame")then local cH=cG:FindFirstChildOfClass("TextLabel")if cH and cH.Text=="AUTO GRAB"then local cI=cG:FindFirstChildOfClass("TextButton")if cI then cI.BackgroundColor3=cp and Color3.fromRGB(170,0,255)or Color3.fromRGB(40,40,40)local cJ=cI:FindFirstChildOfClass("Frame")if cJ then cJ.Position=cp and UDim2.new(1,-20,0.5,-9)or UDim2.new(0,2,0.5,-9)end end end end end end end)f.InputBegan:Connect(function(b7,b8)if b8 then return end;if b7.KeyCode==Enum.KeyCode.L then if cd then ch()else cg()end;for b9,cj in pairs(be:GetChildren())do if cj:IsA("Frame")then local ck=cj:FindFirstChildOfClass("TextLabel")if ck and ck.Text=="ANTI LAG"then local cl=cj:FindFirstChildOfClass("TextButton")if cl then cl.BackgroundColor3=cd and Color3.fromRGB(170,0,255)or Color3.fromRGB(40,40,40)local cm=cl:FindFirstChildOfClass("Frame")if cm then cm.Position=cd and UDim2.new(1,-20,0.5,-9)or UDim2.new(0,2,0.5,-9)end end end end end end end)e.Heartbeat:Connect(function()if not H or not I then return end;local cL=0;if O then cL=M end;if P then cL=N end;if cL>0 then local cM=I.MoveDirection;H.AssemblyLinearVelocity=Vector3.new(cM.X*cL,H.AssemblyLinearVelocity.Y,cM.Z*cL)end;if Q and f:IsKeyDown(Enum.KeyCode.Space)then H.AssemblyLinearVelocity=Vector3.new(H.AssemblyLinearVelocity.X,50,H.AssemblyLinearVelocity.Z)end;if R and T then T.AngularVelocity=Vector3.new(0,S,0)end end)f.InputBegan:Connect(function(b7,b8)if b8 then return end;if b7.KeyCode==Enum.KeyCode.F then if not O and not P then O=true;P=false elseif O then O=false;P=true elseif P then P=false;O=true end;V()end end)local cN={COMBAT=y,MOVEMENT=L,VISUALS=be,MISC=co}for b9,w in pairs(r:GetChildren())do if w:IsA("TextButton")then w.MouseButton1Click:Connect(function()for _,cO in pairs(cN)do cO.Visible=false end;if cN[w.Text]then cN[w.Text].Visible=true end end)end end;local cP,cQ,cR;m.InputBegan:Connect(function(cS)if cS.UserInputType==Enum.UserInputType.MouseButton1 then cP=true;cQ=cS.Position;cR=m.Position;cS.Changed:Connect(function()if cS.UserInputState==Enum.UserInputState.End then cP=false end end)end end)f.InputChanged:Connect(function(cS)if cP and cS.UserInputType==Enum.UserInputType.MouseMovement then local cT=cS.Position-cQ;m.Position=UDim2.new(cR.X.Scale,cR.X.Offset+cT.X,cR.Y.Scale,cR.Y.Offset+cT.Y)end end)local cU=false;local cV=m.Size;local cW=Instance.new("TextButton",m)cW.Size=UDim2.new(0,32,0,32)cW.Position=UDim2.new(1,-40,0,8)cW.BackgroundTransparency=1;cW.Text="-"cW.Font=Enum.Font.GothamBold;cW.TextSize=26;cW.TextColor3=Color3.fromRGB(170,0,255)cW.MouseButton1Click:Connect(function()cU=not cU;if cU then cW.Text="+"m.Size=UDim2.new(0,600,0,55)p.Visible=false;q.Visible=false;r.Visible=false;s.Visible=false;for _,cO in pairs(cN)do cO.Visible=false end else cW.Text="-"m.Size=cV;p.Visible=true;q.Visible=true;r.Visible=true;s.Visible=true end end)V()print("🎮 FLUXO HUB CARREGADO COM SUCESSO!")print("📌 Discord: discord.gg/G7upZYU58Q")print("🔥 Funcionalidades:")print("   ✅ AUTO BAT (Combat)")print("   ✅ SPEED x2 (Movement)")print("   ✅ JUMP (Movement)")print("   ✅ HELICOPTERO (Movement)")print("   ✅ ANT RAGDOLL (Movement)")print("   ✅ XRAY (Visuals)")print("   ✅ ESP ALL (Visuals)")print("   ✅ TIMER ESP (Visuals)")print("   ✅ ANTI LAG (Visuals)")print("   ✅ AUTO GRAB (Misc)")print("🎮 Teclas:")print("   F - Alternar Speed")print("   H - Anti Ragdoll")print("   L - Anti Lag")print("   G - Auto Grab")
+--------------------------------------------------
+-- SISTEMA DE KEY POR NOME (WHITELIST)
+--------------------------------------------------
+
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+-- 🔒 LISTA DE NOMES PERMITIDOS
+local WHITELIST = {
+    "Baron_e08",   -- coloque seu nome exatamente como no Roblox
+    "minepikudao", -- você pode adicionar mais nomes
+	"LaluluDoVine",
+	"01pvpp",
+}
+
+local autorizado = false
+
+for _, nome in ipairs(WHITELIST) do
+    if player.Name == nome then
+        autorizado = true
+        break
+    end
+end
+
+if not autorizado then
+    warn("❌ Acesso negado para: " .. player.Name)
+    task.wait(1)
+    player:Kick("❌ Você não está autorizado a usar este script.")
+    return -- impede o resto do script de rodar
+end
+
+print("✅ Acesso autorizado para:", player.Name)
+--// FLUXO HUB COMPLETO COM SPEED, JUMP, HELICOPTERO AJUSTÁVEL, NOVO ANTI RAGDOLL, VISUALS, ANTI LAG E AUTO GRAB
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local UserInputService = game:GetService("UserInputService")
+local Workspace = game:GetService("Workspace")
+local TweenService = game:GetService("TweenService")
+local Lighting = game:GetService("Lighting")
+local StarterGui = game:GetService("StarterGui")
+
+local player = Players.LocalPlayer
+local PlayerGui = player:WaitForChild("PlayerGui")
+
+if PlayerGui:FindFirstChild("FluxoHub") then
+	PlayerGui.FluxoHub:Destroy()
+end
+
+--------------------------------------------------
+-- UI BASE
+--------------------------------------------------
+local ScreenGui = Instance.new("ScreenGui", PlayerGui)
+ScreenGui.Name = "FluxoHub"
+ScreenGui.ResetOnSpawn = false
+
+local Main = Instance.new("Frame", ScreenGui)
+Main.Size = UDim2.new(0,600,0,360)
+Main.Position = UDim2.new(0.5,-300,0.5,-180)
+Main.BackgroundColor3 = Color3.fromRGB(10,10,10)
+Instance.new("UICorner", Main).CornerRadius = UDim.new(0,22)
+
+local Bg = Instance.new("ImageLabel", Main)
+Bg.Size = UDim2.new(1,0,1,0)
+Bg.BackgroundTransparency = 1
+Bg.Image = "rbxassetid://1217190223"
+Bg.ImageTransparency = 0.15
+
+local Title = Instance.new("TextLabel", Main)
+Title.Size = UDim2.new(1,0,0,50)
+Title.BackgroundTransparency = 1
+Title.Text = "F L U X O   H U B"
+Title.Font = Enum.Font.GothamBold
+Title.TextSize = 30
+Title.TextColor3 = Color3.fromRGB(170,0,255)
+
+local Sub = Instance.new("TextButton", Main)
+Sub.Size = UDim2.new(1,0,0,20)
+Sub.Position = UDim2.new(0,0,0,45)
+Sub.BackgroundTransparency = 1
+Sub.Text = "discord.gg/G7upZYU58Q"
+Sub.Font = Enum.Font.Gotham
+Sub.TextSize = 14
+Sub.TextColor3 = Color3.fromRGB(170,0,255)
+Sub.MouseButton1Click:Connect(function()
+	setclipboard("discord.gg/G7upZYU58Q")
+end)
+
+local TitleLine = Instance.new("Frame", Main)
+TitleLine.Size = UDim2.new(1,0,0,2)
+TitleLine.Position = UDim2.new(0,0,0,70)
+TitleLine.BackgroundColor3 = Color3.fromRGB(170,0,255)
+TitleLine.BorderSizePixel = 0
+
+--------------------------------------------------
+-- MENU
+--------------------------------------------------
+local Menu = Instance.new("Frame", Main)
+Menu.Size = UDim2.new(0,170,1,-70)
+Menu.Position = UDim2.new(0,0,0,70)
+Menu.BackgroundTransparency = 1
+
+local VLine = Instance.new("Frame", Main)
+VLine.Size = UDim2.new(0,2,1,-70)
+VLine.Position = UDim2.new(0,170,0,70)
+VLine.BackgroundColor3 = Color3.fromRGB(170,0,255)
+VLine.BorderSizePixel = 0
+
+local sections = {"COMBAT","MOVEMENT","VISUALS","MISC","CONFIG"}
+for i,name in ipairs(sections) do
+	local b = Instance.new("TextButton", Menu)
+	b.Size = UDim2.new(1,0,0,45)
+	b.Position = UDim2.new(0,0,0,(i-1)*50)
+	b.BackgroundTransparency = 1
+	b.Text = name
+	b.Font = Enum.Font.Gotham
+	b.TextSize = 18
+	b.TextColor3 = Color3.fromRGB(170,0,255)
+end
+
+--------------------------------------------------
+-- AUTO BAT
+--------------------------------------------------
+local AutoBatEnabled = false
+local AutoBatFrame = Instance.new("Frame", Main)
+AutoBatFrame.Size = UDim2.new(0,260,0,50)
+AutoBatFrame.Position = UDim2.new(0,230,0,130)
+AutoBatFrame.BackgroundTransparency = 1
+AutoBatFrame.Visible = false
+
+local AutoBatLabel = Instance.new("TextLabel", AutoBatFrame)
+AutoBatLabel.Size = UDim2.new(0,150,1,0)
+AutoBatLabel.BackgroundTransparency = 1
+AutoBatLabel.Text = "AUTO BAT"
+AutoBatLabel.Font = Enum.Font.Gotham
+AutoBatLabel.TextSize = 18
+AutoBatLabel.TextColor3 = Color3.fromRGB(170,0,255)
+AutoBatLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+local AutoSwitch = Instance.new("TextButton", AutoBatFrame)
+AutoSwitch.Size = UDim2.new(0,46,0,22)
+AutoSwitch.Position = UDim2.new(1,-50,0.5,-11)
+AutoSwitch.Text = ""
+AutoSwitch.BackgroundColor3 = Color3.fromRGB(40,40,40)
+AutoSwitch.AutoButtonColor = false
+Instance.new("UICorner", AutoSwitch).CornerRadius = UDim.new(1,0)
+
+local AutoBall = Instance.new("Frame", AutoSwitch)
+AutoBall.Size = UDim2.new(0,18,0,18)
+AutoBall.Position = UDim2.new(0,2,0.5,-9)
+AutoBall.BackgroundColor3 = Color3.fromRGB(120,120,120)
+Instance.new("UICorner", AutoBall).CornerRadius = UDim.new(1,0)
+
+local function RefreshAuto()
+	if AutoBatEnabled then
+		AutoSwitch.BackgroundColor3 = Color3.fromRGB(170,0,255)
+		AutoBall.Position = UDim2.new(1,-20,0.5,-9)
+	else
+		AutoSwitch.BackgroundColor3 = Color3.fromRGB(40,40,40)
+		AutoBall.Position = UDim2.new(0,2,0.5,-9)
+	end
+end
+
+AutoSwitch.MouseButton1Click:Connect(function()
+	AutoBatEnabled = not AutoBatEnabled
+	RefreshAuto()
+end)
+
+RefreshAuto()
+
+task.spawn(function()
+	while true do
+		if AutoBatEnabled then
+			local char = player.Character
+			if char and char:FindFirstChild("HumanoidRootPart") then
+				local tool = char:FindFirstChild("Bat") or char:FindFirstChild("Taco")
+				if not tool then
+					local bp = player.Backpack:FindFirstChild("Bat") or player.Backpack:FindFirstChild("Taco")
+					if bp then bp.Parent = char tool = bp end
+				end
+				if tool then tool:Activate() end
+			end
+		end
+		task.wait(0.05)
+	end
+end)
+
+--------------------------------------------------
+-- SETUP DO PERSONAGEM PARA SPEED/JUMP/HELICOPTERO
+--------------------------------------------------
+local Character, HRP, Humanoid
+local function SetupCharacter(c)
+	Character = c
+	HRP = c:WaitForChild("HumanoidRootPart")
+	Humanoid = c:WaitForChild("Humanoid")
+end
+if player.Character then SetupCharacter(player.Character) end
+player.CharacterAdded:Connect(SetupCharacter)
+
+--------------------------------------------------
+-- MOVEMENT UI (SPEED, JUMP, HELICOPTERO AJUSTÁVEL, ANT RAGDOLL)
+--------------------------------------------------
+local MovementFrame = Instance.new("Frame", Main)
+MovementFrame.Size = UDim2.new(0,320,0,280)
+MovementFrame.Position = UDim2.new(0,230,0,100)
+MovementFrame.BackgroundTransparency = 1
+MovementFrame.Visible = false
+
+-- VALORES INICIAIS CORRIGIDOS
+local SpeedValue1 = 60
+local SpeedValue2 = 30
+local SpeedEnabled1 = false
+local SpeedEnabled2 = false
+local JumpEnabled = false
+local HelicopteroEnabled = false
+local HelicopteroSpeed = 30
+local bodyAngularVelocity = nil
+
+-- REFERÊNCIAS PARA OS CONTROLES DE SPEED
+local speedControls = {}
+
+-- FUNÇÃO PARA ATUALIZAR UI DO SPEED
+local function UpdateSpeedUI()
+	for _, control in pairs(speedControls) do
+		local isEnabled = (control.index == 1 and SpeedEnabled1) or (control.index == 2 and SpeedEnabled2)
+		control.switch.BackgroundColor3 = isEnabled and Color3.fromRGB(170,0,255) or Color3.fromRGB(40,40,40)
+		control.ball.Position = isEnabled and UDim2.new(1,-20,0.5,-9) or UDim2.new(0,2,0.5,-9)
+	end
+end
+
+-- FUNÇÃO PARA CRIAR SPEED
+local function CreateSpeedControl(name, y, index)
+	local f = Instance.new("Frame", MovementFrame)
+	f.Size = UDim2.new(0,300,0,45)
+	f.Position = UDim2.new(0,0,0,y)
+	f.BackgroundTransparency = 1
+
+	local label = Instance.new("TextLabel", f)
+	label.Size = UDim2.new(0,100,1,0)
+	label.BackgroundTransparency = 1
+	label.Text = name
+	label.Font = Enum.Font.Gotham
+	label.TextSize = 18
+	label.TextColor3 = Color3.fromRGB(170,0,255)
+	label.TextXAlignment = Enum.TextXAlignment.Left
+
+	local minus = Instance.new("TextButton", f)
+	minus.Size = UDim2.new(0,25,1,0)
+	minus.Position = UDim2.new(0,110,0,0)
+	minus.BackgroundTransparency = 1
+	minus.Text = "-"
+	minus.Font = Enum.Font.GothamBold
+	minus.TextSize = 20
+	minus.TextColor3 = Color3.fromRGB(170,0,255)
+
+	local valueLabel = Instance.new("TextLabel", f)
+	valueLabel.Size = UDim2.new(0,40,1,0)
+	valueLabel.Position = UDim2.new(0,140,0,0)
+	valueLabel.BackgroundTransparency = 1
+	valueLabel.Font = Enum.Font.Gotham
+	valueLabel.TextSize = 16
+	valueLabel.TextColor3 = Color3.fromRGB(170,0,255)
+
+	local plus = Instance.new("TextButton", f)
+	plus.Size = UDim2.new(0,25,1,0)
+	plus.Position = UDim2.new(0,185,0,0)
+	plus.BackgroundTransparency = 1
+	plus.Text = "+"
+	plus.Font = Enum.Font.GothamBold
+	plus.TextSize = 20
+	plus.TextColor3 = Color3.fromRGB(170,0,255)
+
+	local switch = Instance.new("TextButton", f)
+	switch.Size = UDim2.new(0,46,0,22)
+	switch.Position = UDim2.new(1,-50,0.5,-11)
+	switch.Text = ""
+	switch.BackgroundColor3 = Color3.fromRGB(40,40,40)
+	switch.AutoButtonColor = false
+	Instance.new("UICorner", switch).CornerRadius = UDim.new(1,0)
+
+	local ball = Instance.new("Frame", switch)
+	ball.Size = UDim2.new(0,18,0,18)
+	ball.Position = UDim2.new(0,2,0.5,-9)
+	ball.BackgroundColor3 = Color3.fromRGB(120,120,120)
+	Instance.new("UICorner", ball).CornerRadius = UDim.new(1,0)
+
+	local function refresh()
+		local val = index==1 and SpeedValue1 or SpeedValue2
+		valueLabel.Text = tostring(val)
+		local on = index==1 and SpeedEnabled1 or SpeedEnabled2
+		switch.BackgroundColor3 = on and Color3.fromRGB(170,0,255) or Color3.fromRGB(40,40,40)
+		ball.Position = on and UDim2.new(1,-20,0.5,-9) or UDim2.new(0,2,0.5,-9)
+	end
+
+	switch.MouseButton1Click:Connect(function()
+		if index==1 then
+			SpeedEnabled1 = not SpeedEnabled1
+			SpeedEnabled2 = false
+		else
+			SpeedEnabled2 = not SpeedEnabled2
+			SpeedEnabled1 = false
+		end
+		UpdateSpeedUI()
+	end)
+
+	minus.MouseButton1Click:Connect(function()
+		if index==1 then SpeedValue1 = math.max(5, SpeedValue1-5)
+		else SpeedValue2 = math.max(5, SpeedValue2-5) end
+		refresh()
+	end)
+
+	plus.MouseButton1Click:Connect(function()
+		if index==1 then SpeedValue1 += 5
+		else SpeedValue2 += 5 end
+		refresh()
+	end)
+
+	-- Salvar referência para atualização
+	table.insert(speedControls, {
+		index = index,
+		switch = switch,
+		ball = ball,
+		frame = f
+	})
+
+	refresh()
+end
+
+-- CRIAR SPEED 1 (Y=0) - AGORA COM VALOR 60
+CreateSpeedControl("SPEED", 0, 1)
+
+-- CRIAR SPEED 2 (Y=45, logo abaixo do Speed 1) - AGORA COM VALOR 30
+CreateSpeedControl("SPEED 2", 45, 2)
+
+-- JUMP (Y=90, abaixo do Speed 2)
+local function CreateJumpToggle()
+	local f = Instance.new("Frame", MovementFrame)
+	f.Size = UDim2.new(0,300,0,45)
+	f.Position = UDim2.new(0,0,0,90)
+	f.BackgroundTransparency = 1
+
+	local label = Instance.new("TextLabel", f)
+	label.Size = UDim2.new(0,150,1,0)
+	label.BackgroundTransparency = 1
+	label.Text = "JUMP"
+	label.Font = Enum.Font.Gotham
+	label.TextSize = 18
+	label.TextColor3 = Color3.fromRGB(170,0,255)
+	label.TextXAlignment = Enum.TextXAlignment.Left
+
+	local switch = Instance.new("TextButton", f)
+	switch.Size = UDim2.new(0,46,0,22)
+	switch.Position = UDim2.new(1,-50,0.5,-11)
+	switch.Text = ""
+	switch.BackgroundColor3 = Color3.fromRGB(40,40,40)
+	switch.AutoButtonColor = false
+	Instance.new("UICorner", switch).CornerRadius = UDim.new(1,0)
+
+	local ball = Instance.new("Frame", switch)
+	ball.Size = UDim2.new(0,18,0,18)
+	ball.Position = UDim2.new(0,2,0.5,-9)
+	ball.BackgroundColor3 = Color3.fromRGB(120,120,120)
+	Instance.new("UICorner", ball).CornerRadius = UDim.new(1,0)
+
+	local function refresh()
+		switch.BackgroundColor3 = JumpEnabled and Color3.fromRGB(170,0,255) or Color3.fromRGB(40,40,40)
+		ball.Position = JumpEnabled and UDim2.new(1,-20,0.5,-9) or UDim2.new(0,2,0.5,-9)
+	end
+
+	switch.MouseButton1Click:Connect(function()
+		JumpEnabled = not JumpEnabled
+		refresh()
+	end)
+
+	refresh()
+end
+CreateJumpToggle()
+
+-- HELICOPTERO AJUSTÁVEL (Y=135, abaixo do Jump)
+local function CreateHelicopteroToggle()
+	local f = Instance.new("Frame", MovementFrame)
+	f.Size = UDim2.new(0,300,0,45)
+	f.Position = UDim2.new(0,0,0,135)
+	f.BackgroundTransparency = 1
+
+	local label = Instance.new("TextLabel", f)
+	label.Size = UDim2.new(0,100,1,0)
+	label.BackgroundTransparency = 1
+	label.Text = "HELICOPTERO"
+	label.Font = Enum.Font.Gotham
+	label.TextSize = 18
+	label.TextColor3 = Color3.fromRGB(170,0,255)
+	label.TextXAlignment = Enum.TextXAlignment.Left
+
+	local minus = Instance.new("TextButton", f)
+	minus.Size = UDim2.new(0,25,1,0)
+	minus.Position = UDim2.new(0,110,0,0)
+	minus.BackgroundTransparency = 1
+	minus.Text = "-"
+	minus.Font = Enum.Font.GothamBold
+	minus.TextSize = 20
+	minus.TextColor3 = Color3.fromRGB(170,0,255)
+
+	local valueLabel = Instance.new("TextLabel", f)
+	valueLabel.Size = UDim2.new(0,40,1,0)
+	valueLabel.Position = UDim2.new(0,140,0,0)
+	valueLabel.BackgroundTransparency = 1
+	valueLabel.Font = Enum.Font.Gotham
+	valueLabel.TextSize = 16
+	valueLabel.TextColor3 = Color3.fromRGB(170,0,255)
+
+	local plus = Instance.new("TextButton", f)
+	plus.Size = UDim2.new(0,25,1,0)
+	plus.Position = UDim2.new(0,185,0,0)
+	plus.BackgroundTransparency = 1
+	plus.Text = "+"
+	plus.Font = Enum.Font.GothamBold
+	plus.TextSize = 20
+	plus.TextColor3 = Color3.fromRGB(170,0,255)
+
+	local switch = Instance.new("TextButton", f)
+	switch.Size = UDim2.new(0,46,0,22)
+	switch.Position = UDim2.new(1,-50,0.5,-11)
+	switch.Text = ""
+	switch.BackgroundColor3 = Color3.fromRGB(40,40,40)
+	switch.AutoButtonColor = false
+	Instance.new("UICorner", switch).CornerRadius = UDim.new(1,0)
+
+	local ball = Instance.new("Frame", switch)
+	ball.Size = UDim2.new(0,18,0,18)
+	ball.Position = UDim2.new(0,2,0.5,-9)
+	ball.BackgroundColor3 = Color3.fromRGB(120,120,120)
+	Instance.new("UICorner", ball).CornerRadius = UDim.new(1,0)
+
+	local function refresh()
+		valueLabel.Text = tostring(HelicopteroSpeed)
+		switch.BackgroundColor3 = HelicopteroEnabled and Color3.fromRGB(170,0,255) or Color3.fromRGB(40,40,40)
+		ball.Position = HelicopteroEnabled and UDim2.new(1,-20,0.5,-9) or UDim2.new(0,2,0.5,-9)
+	end
+
+	switch.MouseButton1Click:Connect(function()
+		HelicopteroEnabled = not HelicopteroEnabled
+		
+		local character = player.Character
+		if not character then 
+			HelicopteroEnabled = false
+			refresh()
+			return 
+		end
+		
+		local hrp = character:FindFirstChild("HumanoidRootPart")
+		if not hrp then 
+			HelicopteroEnabled = false
+			refresh()
+			return 
+		end
+
+		if HelicopteroEnabled then
+			-- Ativa helicóptero
+			if bodyAngularVelocity then bodyAngularVelocity:Destroy() end
+			bodyAngularVelocity = Instance.new("BodyAngularVelocity")
+			bodyAngularVelocity.MaxTorque = Vector3.new(0, math.huge, 0)
+			bodyAngularVelocity.AngularVelocity = Vector3.new(0, HelicopteroSpeed, 0)
+			bodyAngularVelocity.Parent = hrp
+			print("🚁 Helicóptero ATIVADO - Velocidade: " .. HelicopteroSpeed)
+		else
+			-- Desativa helicóptero
+			if bodyAngularVelocity then
+				bodyAngularVelocity:Destroy()
+				bodyAngularVelocity = nil
+			end
+			print("🚁 Helicóptero DESATIVADO")
+		end
+		refresh()
+	end)
+
+	minus.MouseButton1Click:Connect(function()
+		HelicopteroSpeed = math.max(5, HelicopteroSpeed-5)
+		refresh()
+		
+		-- Atualiza velocidade se estiver ativado
+		if HelicopteroEnabled and bodyAngularVelocity then
+			bodyAngularVelocity.AngularVelocity = Vector3.new(0, HelicopteroSpeed, 0)
+			print("🚁 Velocidade do Helicóptero ajustada para: " .. HelicopteroSpeed)
+		end
+	end)
+
+	plus.MouseButton1Click:Connect(function()
+		HelicopteroSpeed += 5
+		refresh()
+		
+		-- Atualiza velocidade se estiver ativado
+		if HelicopteroEnabled and bodyAngularVelocity then
+			bodyAngularVelocity.AngularVelocity = Vector3.new(0, HelicopteroSpeed, 0)
+			print("🚁 Velocidade do Helicóptero ajustada para: " .. HelicopteroSpeed)
+		end
+	end)
+
+	refresh()
+end
+CreateHelicopteroToggle()
+
+--------------------------------------------------
+-- NOVO ANTI RAGDOLL (SUBSTITUÍDO)
+--------------------------------------------------
+local AntiRagdollEnabled = false
+local toggleAntiRagdollFunction = nil
+
+task.spawn(function()
+    local RunService = game:GetService("RunService")
+    local LocalPlayer = player
+    
+    local isRunning = false
+    local connections = {}
+    local cachedCharData = {}
+    
+    local function cacheCharacterData()
+        local char = LocalPlayer.Character
+        if not char then return false end
+        
+        local hum = char:FindFirstChildOfClass("Humanoid")
+        local root = char:FindFirstChild("HumanoidRootPart")
+        
+        if not hum or not root then return false end
+        
+        cachedCharData = {
+            character = char,
+            humanoid = hum,
+            root = root,
+        }
+        
+        return true
+    end
+    
+    local function isRagdolled()
+        if not cachedCharData.humanoid then return false end
+        
+        local hum = cachedCharData.humanoid
+        local state = hum:GetState()
+        
+        local ragdollStates = {
+            [Enum.HumanoidStateType.Physics] = true,
+            [Enum.HumanoidStateType.Ragdoll] = true,
+            [Enum.HumanoidStateType.FallingDown] = true
+        }
+        
+        if ragdollStates[state] then
+            return true
+        end
+        
+        local endTime = LocalPlayer:GetAttribute("RagdollEndTime")
+        if endTime then
+            local now = workspace:GetServerTimeNow()
+            if (endTime - now) > 0 then
+                return true
+            end
+        end
+        
+        return false
+    end
+    
+    local function preventRagdoll()
+        if not cachedCharData.humanoid or not cachedCharData.root then return end
+        
+        local hum = cachedCharData.humanoid
+        local root = cachedCharData.root
+        
+        pcall(function()
+            local now = workspace:GetServerTimeNow()
+            LocalPlayer:SetAttribute("RagdollEndTime", now - 1)
+        end)
+        
+        if hum.Health > 0 then
+            pcall(function()
+                hum:ChangeState(Enum.HumanoidStateType.Running)
+            end)
+        end
+        
+        pcall(function()
+            if root.Anchored then
+                root.Anchored = false
+            end
+            root.AssemblyLinearVelocity = Vector3.zero
+            root.AssemblyAngularVelocity = Vector3.zero
+        end)
+    end
+    
+    local function keepMotorJointsIntact()
+        if not cachedCharData.character then return end
+        
+        for _, obj in ipairs(cachedCharData.character:GetDescendants()) do
+            if obj:IsA("Motor6D") then
+                if not obj.Enabled then
+                    pcall(function()
+                        obj.Enabled = true
+                    end)
+                end
+            end
+        end
+    end
+    
+    local function setupCameraBinding()
+        if not cachedCharData.humanoid then return end
+        
+        for _, conn in ipairs(connections) do
+            if conn.Name == "Camera" then
+                pcall(function() conn.Connection:Disconnect() end)
+            end
+        end
+        
+        local camConnection = RunService.Heartbeat:Connect(function()
+            if not cachedCharData.humanoid then return end
+            local cam = workspace.CurrentCamera
+            if cam and cam.CameraSubject ~= cachedCharData.humanoid then
+                cam.CameraSubject = cachedCharData.humanoid
+            end
+        end)
+        
+        table.insert(connections, {Name = "Camera", Connection = camConnection})
+    end
+    
+    local function monitorDescendants()
+        if not cachedCharData.character then return end
+        
+        for _, conn in ipairs(connections) do
+            if conn.Name == "Descendant" then
+                pcall(function() conn.Connection:Disconnect() end)
+            end
+        end
+        
+        local descendantConnection = cachedCharData.character.DescendantRemoving:Connect(function(descendant)
+            if not _G.AntiRag then return end
+            
+            if descendant:IsA("Motor6D") then
+                if not descendant.Parent then
+                    local newMotor = descendant:Clone()
+                    pcall(function()
+                        newMotor.Parent = descendant.Parent
+                    end)
+                end
+            end
+        end)
+        
+        table.insert(connections, {Name = "Descendant", Connection = descendantConnection})
+    end
+    
+    local function heartbeatLoop()
+        while isRunning and cachedCharData.humanoid do
+            task.wait()
+            
+            if not _G.AntiRag then
+                task.wait(0.5)
+                continue
+            end
+            
+            if isRagdolled() then
+                preventRagdoll()
+                keepMotorJointsIntact()
+            end
+        end
+    end
+    
+    local function onCharacterAdded(char)
+        for _, conn in ipairs(connections) do
+            pcall(function() conn.Connection:Disconnect() end)
+        end
+        connections = {}
+        
+        task.wait(0.5)
+        
+        if cacheCharacterData() then
+            setupCameraBinding()
+            monitorDescendants()
+            isRunning = true
+            task.spawn(heartbeatLoop)
+        end
+    end
+    
+    -- Inicializar Anti-Ragdoll baseado na configuração salva
+    _G.AntiRag = AntiRagdollEnabled
+    
+    if cacheCharacterData() then
+        setupCameraBinding()
+        monitorDescendants()
+        isRunning = true
+        task.spawn(heartbeatLoop)
+    end
+    
+    LocalPlayer.CharacterAdded:Connect(onCharacterAdded)
+    
+    -- Função para alternar Anti-Ragdoll
+    toggleAntiRagdollFunction = function(state)
+        _G.AntiRag = state
+        AntiRagdollEnabled = state
+        
+        if state then
+            print("✅ Anti-Ragdoll ATIVADO")
+        else
+            print("❌ Anti-Ragdoll DESATIVADO")
+        end
+    end
+    
+    -- Inicializar com estado padrão
+    toggleAntiRagdollFunction(AntiRagdollEnabled)
+end)
+
+-- ANT RAGDOLL TOGGLE NA UI (Y=180, abaixo do Helicoptero)
+local function CreateAntiRagdollToggle()
+	local f = Instance.new("Frame", MovementFrame)
+	f.Size = UDim2.new(0,300,0,45)
+	f.Position = UDim2.new(0,0,0,180)
+	f.BackgroundTransparency = 1
+
+	local label = Instance.new("TextLabel", f)
+	label.Size = UDim2.new(0,150,1,0)
+	label.BackgroundTransparency = 1
+	label.Text = "ANT RAGDOLL"
+	label.Font = Enum.Font.Gotham
+	label.TextSize = 18
+	label.TextColor3 = Color3.fromRGB(170,0,255)
+	label.TextXAlignment = Enum.TextXAlignment.Left
+
+	local switch = Instance.new("TextButton", f)
+	switch.Size = UDim2.new(0,46,0,22)
+	switch.Position = UDim2.new(1,-50,0.5,-11)
+	switch.Text = ""
+	switch.BackgroundColor3 = Color3.fromRGB(40,40,40)
+	switch.AutoButtonColor = false
+	Instance.new("UICorner", switch).CornerRadius = UDim.new(1,0)
+
+	local ball = Instance.new("Frame", switch)
+	ball.Size = UDim2.new(0,18,0,18)
+	ball.Position = UDim2.new(0,2,0.5,-9)
+	ball.BackgroundColor3 = Color3.fromRGB(120,120,120)
+	Instance.new("UICorner", ball).CornerRadius = UDim.new(1,0)
+
+	local function refresh()
+		switch.BackgroundColor3 = AntiRagdollEnabled and Color3.fromRGB(170,0,255) or Color3.fromRGB(40,40,40)
+		ball.Position = AntiRagdollEnabled and UDim2.new(1,-20,0.5,-9) or UDim2.new(0,2,0.5,-9)
+	end
+
+	switch.MouseButton1Click:Connect(function()
+		AntiRagdollEnabled = not AntiRagdollEnabled
+		if toggleAntiRagdollFunction then
+			toggleAntiRagdollFunction(AntiRagdollEnabled)
+		end
+		refresh()
+	end)
+
+	refresh()
+end
+CreateAntiRagdollToggle()
+
+-- TOGGLE PELO TECLADO (H = ligar/desligar)
+UserInputService.InputBegan:Connect(function(input, gpe)
+    if gpe then return end
+    if input.KeyCode == Enum.KeyCode.H then
+        AntiRagdollEnabled = not AntiRagdollEnabled
+        if toggleAntiRagdollFunction then
+            toggleAntiRagdollFunction(AntiRagdollEnabled)
+        end
+        
+        -- Atualizar UI
+        for _, child in pairs(MovementFrame:GetChildren()) do
+            if child:IsA("Frame") then
+                local label = child:FindFirstChildOfClass("TextLabel")
+                if label and label.Text == "ANT RAGDOLL" then
+                    local switch = child:FindFirstChildOfClass("TextButton")
+                    if switch then
+                        switch.BackgroundColor3 = AntiRagdollEnabled and Color3.fromRGB(170,0,255) or Color3.fromRGB(40,40,40)
+                        local ball = switch:FindFirstChildOfClass("Frame")
+                        if ball then
+                            ball.Position = AntiRagdollEnabled and UDim2.new(1,-20,0.5,-9) or UDim2.new(0,2,0.5,-9)
+                        end
+                    end
+                end
+            end
+        end
+    end
+end)
+
+--------------------------------------------------
+-- VISUALS UI (XRAY, ESP ALL, TIMER ESP, ANT LAG)
+--------------------------------------------------
+local VisualsFrame = Instance.new("Frame", Main)
+VisualsFrame.Size = UDim2.new(0,320,0,280)
+VisualsFrame.Position = UDim2.new(0,230,0,100)
+VisualsFrame.BackgroundTransparency = 1
+VisualsFrame.Visible = false
+
+-- VARIÁVEIS PARA VISUALS
+local XRayEnabled = false
+local ESPAllEnabled = false
+local TimerESPEnabled = false
+
+--------------------------------------------------
+-- XRAY SISTEMA (SEU SCRIPT)
+--------------------------------------------------
+local XRayConnection = nil
+local XRAY_BASE_NAME = "Base"
+local XRAY_TRANSPARENCY = 0.7
+
+local function AplicarTransparenciaXRay()
+    for _, v in pairs(Workspace:GetDescendants()) do
+        if v:IsA("BasePart") and v.Name:lower():find(XRAY_BASE_NAME:lower()) then
+            v.LocalTransparencyModifier = XRAY_TRANSPARENCY
+        end
+    end
+end
+
+local function RemoverTransparenciaXRay()
+    for _, v in pairs(Workspace:GetDescendants()) do
+        if v:IsA("BasePart") and v.Name:lower():find(XRAY_BASE_NAME:lower()) then
+            v.LocalTransparencyModifier = 0
+        end
+    end
+end
+
+local function AtivarXRay()
+    if XRayEnabled then return end
+    XRayEnabled = true
+    AplicarTransparenciaXRay()
+
+    -- Aplica transparência a novos objetos que aparecerem
+    XRayConnection = Workspace.DescendantAdded:Connect(function(obj)
+        task.wait(0.1)
+        if XRayEnabled and obj:IsA("BasePart") and obj.Name:lower():find(XRAY_BASE_NAME:lower()) then
+            obj.LocalTransparencyModifier = XRAY_TRANSPARENCY
+        end
+    end)
+
+    print("👁️ X-Ray ATIVADO")
+end
+
+local function DesativarXRay()
+    if not XRayEnabled then return end
+    XRayEnabled = false
+    RemoverTransparenciaXRay()
+
+    if XRayConnection then
+        XRayConnection:Disconnect()
+        XRayConnection = nil
+    end
+
+    print("👁️ X-Ray DESATIVADO")
+end
+
+-- XRAY TOGGLE NA UI
+local function CreateXrayToggle()
+	local f = Instance.new("Frame", VisualsFrame)
+	f.Size = UDim2.new(0,300,0,45)
+	f.Position = UDim2.new(0,0,0,0)
+	f.BackgroundTransparency = 1
+
+	local label = Instance.new("TextLabel", f)
+	label.Size = UDim2.new(0,150,1,0)
+	label.BackgroundTransparency = 1
+	label.Text = "XRAY"
+	label.Font = Enum.Font.Gotham
+	label.TextSize = 18
+	label.TextColor3 = Color3.fromRGB(170,0,255)
+	label.TextXAlignment = Enum.TextXAlignment.Left
+
+	local switch = Instance.new("TextButton", f)
+	switch.Size = UDim2.new(0,46,0,22)
+	switch.Position = UDim2.new(1,-50,0.5,-11)
+	switch.Text = ""
+	switch.BackgroundColor3 = Color3.fromRGB(40,40,40)
+	switch.AutoButtonColor = false
+	Instance.new("UICorner", switch).CornerRadius = UDim.new(1,0)
+
+	local ball = Instance.new("Frame", switch)
+	ball.Size = UDim2.new(0,18,0,18)
+	ball.Position = UDim2.new(0,2,0.5,-9)
+	ball.BackgroundColor3 = Color3.fromRGB(120,120,120)
+	Instance.new("UICorner", ball).CornerRadius = UDim.new(1,0)
+
+	local function refresh()
+		switch.BackgroundColor3 = XRayEnabled and Color3.fromRGB(170,0,255) or Color3.fromRGB(40,40,40)
+		ball.Position = XRayEnabled and UDim2.new(1,-20,0.5,-9) or UDim2.new(0,2,0.5,-9)
+	end
+
+	switch.MouseButton1Click:Connect(function()
+		if XRayEnabled then
+			DesativarXRay()
+		else
+			AtivarXRay()
+		end
+		refresh()
+	end)
+
+	refresh()
+end
+CreateXrayToggle()
+
+--------------------------------------------------
+-- ESP ALL (DO HYPER TOOLS)
+--------------------------------------------------
+local espHighlights = {}
+local espNames = {}
+
+local function CreateESPAllToggle()
+	local f = Instance.new("Frame", VisualsFrame)
+	f.Size = UDim2.new(0,300,0,45)
+	f.Position = UDim2.new(0,0,0,45)
+	f.BackgroundTransparency = 1
+
+	local label = Instance.new("TextLabel", f)
+	label.Size = UDim2.new(0,150,1,0)
+	label.BackgroundTransparency = 1
+	label.Text = "ESP ALL"
+	label.Font = Enum.Font.Gotham
+	label.TextSize = 18
+	label.TextColor3 = Color3.fromRGB(170,0,255)
+	label.TextXAlignment = Enum.TextXAlignment.Left
+
+	local switch = Instance.new("TextButton", f)
+	switch.Size = UDim2.new(0,46,0,22)
+	switch.Position = UDim2.new(1,-50,0.5,-11)
+	switch.Text = ""
+	switch.BackgroundColor3 = Color3.fromRGB(40,40,40)
+	switch.AutoButtonColor = false
+	Instance.new("UICorner", switch).CornerRadius = UDim.new(1,0)
+
+	local ball = Instance.new("Frame", switch)
+	ball.Size = UDim2.new(0,18,0,18)
+	ball.Position = UDim2.new(0,2,0.5,-9)
+	ball.BackgroundColor3 = Color3.fromRGB(120,120,120)
+	Instance.new("UICorner", ball).CornerRadius = UDim.new(1,0)
+
+	local function refresh()
+		switch.BackgroundColor3 = ESPAllEnabled and Color3.fromRGB(170,0,255) or Color3.fromRGB(40,40,40)
+		ball.Position = ESPAllEnabled and UDim2.new(1,-20,0.5,-9) or UDim2.new(0,2,0.5,-9)
+	end
+
+	-- Cria highlight e nome para um personagem
+	local function createESP(char)
+		if not char or not char:FindFirstChild("HumanoidRootPart") then return end
+		
+		-- Highlight
+		local highlight = Instance.new("Highlight")
+		highlight.Adornee = char
+		highlight.FillColor = Color3.fromRGB(170,0,255)
+		highlight.OutlineColor = Color3.fromRGB(170,0,255)
+		highlight.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+		highlight.Parent = char
+		table.insert(espHighlights, highlight)
+		
+		-- Nome acima da cabeça
+		local billboard = Instance.new("BillboardGui")
+		billboard.Size = UDim2.new(0, 100, 0, 50)
+		billboard.Adornee = char:FindFirstChild("Head")
+		billboard.AlwaysOnTop = true
+		billboard.Parent = char
+
+		local nameLabel = Instance.new("TextLabel")
+		nameLabel.BackgroundTransparency = 1
+		nameLabel.Size = UDim2.new(1,0,1,0)
+		nameLabel.Font = Enum.Font.Gotham
+		nameLabel.Text = char.Name
+		nameLabel.TextColor3 = Color3.fromRGB(170,0,255)
+		nameLabel.TextScaled = true
+		nameLabel.TextStrokeTransparency = 0.5
+		nameLabel.Parent = billboard
+
+		table.insert(espNames, {billboard, nameLabel})
+	end
+
+	-- Ativa ESP para todos os jogadores
+	local function toggleESPAll()
+		ESPAllEnabled = not ESPAllEnabled
+		if ESPAllEnabled then
+			refresh()
+			for _, plr in ipairs(Players:GetPlayers()) do
+				if plr ~= player and plr.Character then
+					createESP(plr.Character)
+				end
+			end
+			-- Atualiza novos personagens que entrarem
+			Players.PlayerAdded:Connect(function(plr)
+				plr.CharacterAdded:Connect(function(char)
+					if ESPAllEnabled then
+						createESP(char)
+					end
+				end)
+			end)
+		else
+			refresh()
+			-- Remove tudo
+			for _, hl in ipairs(espHighlights) do
+				hl:Destroy()
+			end
+			espHighlights = {}
+			for _, data in ipairs(espNames) do
+				if data[1] then data[1]:Destroy() end
+			end
+			espNames = {}
+		end
+	end
+
+	switch.MouseButton1Click:Connect(toggleESPAll)
+
+	refresh()
+end
+CreateESPAllToggle()
+
+--------------------------------------------------
+-- TIMER ESP (MOSTRA O TIMER DA BASE DE CADA PESSOA)
+--------------------------------------------------
+local function CreateTimerESPToggle()
+	local f = Instance.new("Frame", VisualsFrame)
+	f.Size = UDim2.new(0,300,0,45)
+	f.Position = UDim2.new(0,0,0,90)
+	f.BackgroundTransparency = 1
+
+	local label = Instance.new("TextLabel", f)
+	label.Size = UDim2.new(0,150,1,0)
+	label.BackgroundTransparency = 1
+	label.Text = "TIMER ESP"
+	label.Font = Enum.Font.Gotham
+	label.TextSize = 18
+	label.TextColor3 = Color3.fromRGB(170,0,255)
+	label.TextXAlignment = Enum.TextXAlignment.Left
+
+	local switch = Instance.new("TextButton", f)
+	switch.Size = UDim2.new(0,46,0,22)
+	switch.Position = UDim2.new(1,-50,0.5,-11)
+	switch.Text = ""
+	switch.BackgroundColor3 = Color3.fromRGB(40,40,40)
+	switch.AutoButtonColor = false
+	Instance.new("UICorner", switch).CornerRadius = UDim.new(1,0)
+
+	local ball = Instance.new("Frame", switch)
+	ball.Size = UDim2.new(0,18,0,18)
+	ball.Position = UDim2.new(0,2,0.5,-9)
+	ball.BackgroundColor3 = Color3.fromRGB(120,120,120)
+	Instance.new("UICorner", ball).CornerRadius = UDim.new(1,0)
+
+	local function refresh()
+		switch.BackgroundColor3 = TimerESPEnabled and Color3.fromRGB(170,0,255) or Color3.fromRGB(40,40,40)
+		ball.Position = TimerESPEnabled and UDim2.new(1,-20,0.5,-9) or UDim2.new(0,2,0.5,-9)
+	end
+
+	-- Dicionário para armazenar os timers das bases
+	local playerTimers = {}
+	local timerEspGuis = {}
+
+	local function findPlayerBase(player)
+		-- Procurar pela base do jogador no workspace
+		for _, obj in ipairs(Workspace:GetChildren()) do
+			-- Verificar se o objeto tem o nome do jogador ou é uma base
+			if obj.Name:lower():find(player.Name:lower()) or 
+			   obj.Name:lower():find("base") or
+			   (obj:FindFirstChild("Owner") and obj.Owner.Value == player) then
+				-- Procurar por um timer dentro da base
+				local timer = findTimerInModel(obj)
+				if timer then
+					return obj, timer
+				end
+			end
+		end
+		return nil, nil
+	end
+
+	local function findTimerInModel(model)
+		-- Procurar por um timer dentro do modelo
+		for _, child in ipairs(model:GetDescendants()) do
+			if child.Name:lower():find("timer") or 
+			   child.Name:lower():find("bomb") or
+			   child:IsA("TextLabel") and child.Text:lower():find("timer") then
+				return child
+			end
+		end
+		return nil
+	end
+
+	local function createTimerESPForPlayer(player, base, timer)
+		if not base or not timer then return end
+		
+		-- Criar um BillboardGui para mostrar o timer
+		local timerEsp = Instance.new("BillboardGui")
+		timerEsp.Name = "TimerESP_" .. player.Name
+		timerEsp.AlwaysOnTop = true
+		timerEsp.Size = UDim2.new(0, 300, 0, 80)
+		timerEsp.StudsOffset = Vector3.new(0, 8, 0)
+		timerEsp.MaxDistance = 500
+		
+		local timerLabel = Instance.new("TextLabel", timerEsp)
+		timerLabel.BackgroundTransparency = 1
+		timerLabel.Size = UDim2.new(1, 0, 0.5, 0)
+		timerLabel.Text = player.Name .. "'s Base"
+		timerLabel.TextColor3 = Color3.fromRGB(0, 255, 255)
+		timerLabel.TextSize = 16
+		timerLabel.Font = Enum.Font.GothamBold
+		
+		local timeLabel = Instance.new("TextLabel", timerEsp)
+		timeLabel.BackgroundTransparency = 1
+		timeLabel.Size = UDim2.new(1, 0, 0.5, 0)
+		timeLabel.Position = UDim2.new(0, 0, 0.5, 0)
+		timeLabel.Text = "⏰ TIMER"
+		timeLabel.TextColor3 = Color3.fromRGB(255, 255, 0)
+		timeLabel.TextSize = 18
+		timeLabel.Font = Enum.Font.GothamBold
+		
+		-- Conectar ao timer para atualizar o texto
+		if timer:IsA("TextLabel") or timer:IsA("TextButton") or timer:IsA("TextBox") then
+			local connection
+			connection = RunService.Heartbeat:Connect(function()
+				if TimerESPEnabled and timerEsp and timerEsp.Parent then
+					timeLabel.Text = "⏰ " .. tostring(timer.Text)
+				else
+					if connection then
+						connection:Disconnect()
+					end
+				end
+			end)
+		end
+		
+		-- Encontrar uma parte para anexar o ESP
+		local primaryPart = base.PrimaryPart or base:FindFirstChildWhichIsA("BasePart")
+		if primaryPart then
+			timerEsp.Adornee = primaryPart
+			timerEsp.Parent = primaryPart
+		else
+			-- Se não encontrar parte, criar uma part temporária
+			local tempPart = Instance.new("Part")
+			tempPart.Name = "TempESPAnchor"
+			tempPart.Size = Vector3.new(1, 1, 1)
+			tempPart.Transparency = 1
+			tempPart.CanCollide = false
+			tempPart.Anchored = true
+			tempPart.Position = base:GetPivot().Position + Vector3.new(0, 5, 0)
+			tempPart.Parent = base
+			
+			timerEsp.Adornee = tempPart
+			timerEsp.Parent = tempPart
+		end
+		
+		timerEspGuis[player] = timerEsp
+		playerTimers[player] = {base = base, timer = timer}
+	end
+
+	local function removeAllTimerESP()
+		for _, timerEsp in pairs(timerEspGuis) do
+			if timerEsp then 
+				timerEsp:Destroy()
+			end
+		end
+		timerEspGuis = {}
+		playerTimers = {}
+	end
+
+	local function updateTimerESP()
+		if TimerESPEnabled then
+			removeAllTimerESP()
+			
+			-- Para cada jogador, encontrar sua base e timer
+			for _, otherPlayer in ipairs(Players:GetPlayers()) do
+				if otherPlayer ~= player then
+					local base, timer = findPlayerBase(otherPlayer)
+					if base and timer then
+						createTimerESPForPlayer(otherPlayer, base, timer)
+					end
+				end
+			end
+			
+			-- Monitorar novos jogadores
+			Players.PlayerAdded:Connect(function(newPlayer)
+				if TimerESPEnabled and newPlayer ~= player then
+					task.wait(2) -- Esperar a base carregar
+					local base, timer = findPlayerBase(newPlayer)
+					if base and timer then
+						createTimerESPForPlayer(newPlayer, base, timer)
+					end
+				end
+			end)
+			
+			-- Monitorar remoção de jogadores
+			Players.PlayerRemoving:Connect(function(removedPlayer)
+				if timerEspGuis[removedPlayer] then
+					timerEspGuis[removedPlayer]:Destroy()
+					timerEspGuis[removedPlayer] = nil
+					playerTimers[removedPlayer] = nil
+				end
+			end)
+			
+			-- Monitorar novas bases
+			Workspace.DescendantAdded:Connect(function(descendant)
+				if TimerESPEnabled and descendant:IsA("Model") then
+					-- Verificar se é uma base de algum jogador
+					for _, otherPlayer in ipairs(Players:GetPlayers()) do
+						if otherPlayer ~= player and not playerTimers[otherPlayer] then
+							if descendant.Name:lower():find(otherPlayer.Name:lower()) or 
+							   descendant.Name:lower():find("base") then
+								local timer = findTimerInModel(descendant)
+								if timer then
+									createTimerESPForPlayer(otherPlayer, descendant, timer)
+								end
+							end
+						end
+					end
+				end
+			end)
+		else
+			removeAllTimerESP()
+		end
+	end
+
+	switch.MouseButton1Click:Connect(function()
+		TimerESPEnabled = not TimerESPEnabled
+		updateTimerESP()
+		refresh()
+		print(TimerESPEnabled and "⏰ Timer ESP ATIVADO" or "⏰ Timer ESP DESATIVADO")
+	end)
+
+	refresh()
+end
+CreateTimerESPToggle()
+
+--------------------------------------------------
+-- ANTI LAG COMPLETO (SEU SCRIPT) - COM RESTAURAÇÃO PERFEITA
+--------------------------------------------------
+local AntiLagEnabled = false
+
+-- TABELA PARA SALVAR CONFIGURAÇÕES ORIGINAIS
+local ConfiguracoesOriginais = {
+    QualityLevel = nil,
+    GlobalShadows = nil,
+    FogEnd = nil,
+    EnvironmentDiffuseScale = nil,
+    EnvironmentSpecularScale = nil,
+    PartMaterials = {}, -- Para salvar materiais originais das partes
+    PartCastShadow = {}, -- Para salvar sombras originais
+    ParticleEnabled = {}, -- Para salvar estado das partículas
+    TrailEnabled = {}, -- Para salvar estado das trilhas
+    SmokeEnabled = {}, -- Para salvar estado das fumaças
+    FireEnabled = {} -- Para salvar estado dos fogos
+}
+
+--// FUNÇÃO PARA SALVAR CONFIGURAÇÕES ORIGINAIS
+local function SalvarConfiguracoesOriginais()
+    -- Salvar configurações gráficas
+    ConfiguracoesOriginais.QualityLevel = settings().Rendering.QualityLevel
+    ConfiguracoesOriginais.GlobalShadows = Lighting.GlobalShadows
+    ConfiguracoesOriginais.FogEnd = Lighting.FogEnd
+    ConfiguracoesOriginais.EnvironmentDiffuseScale = Lighting.EnvironmentDiffuseScale
+    ConfiguracoesOriginais.EnvironmentSpecularScale = Lighting.EnvironmentSpecularScale
+    
+    -- Limpar tabelas antigas
+    ConfiguracoesOriginais.PartMaterials = {}
+    ConfiguracoesOriginais.PartCastShadow = {}
+    ConfiguracoesOriginais.ParticleEnabled = {}
+    ConfiguracoesOriginais.TrailEnabled = {}
+    ConfiguracoesOriginais.SmokeEnabled = {}
+    ConfiguracoesOriginais.FireEnabled = {}
+    
+    -- Salvar estado de todos os objetos do workspace
+    for _, obj in pairs(Workspace:GetDescendants()) do
+        if obj:IsA("BasePart") then
+            ConfiguracoesOriginais.PartMaterials[obj] = obj.Material
+            ConfiguracoesOriginais.PartCastShadow[obj] = obj.CastShadow
+        elseif obj:IsA("ParticleEmitter") then
+            ConfiguracoesOriginais.ParticleEnabled[obj] = obj.Enabled
+        elseif obj:IsA("Trail") then
+            ConfiguracoesOriginais.TrailEnabled[obj] = obj.Enabled
+        elseif obj:IsA("Smoke") then
+            ConfiguracoesOriginais.SmokeEnabled[obj] = obj.Enabled
+        elseif obj:IsA("Fire") then
+            ConfiguracoesOriginais.FireEnabled[obj] = obj.Enabled
+        end
+    end
+    
+    print("✅ Configurações originais salvas")
+end
+
+--// FUNÇÃO PARA ATIVAR ANTI LAG
+local function AtivarAntiLag()
+    if AntiLagEnabled then return end
+    
+    -- Primeiro salva as configurações atuais
+    SalvarConfiguracoesOriginais()
+    
+    AntiLagEnabled = true
+    print("🧊 Anti Lag ATIVADO")
+
+    -- Configurações gráficas mínimas
+    settings().Rendering.QualityLevel = Enum.QualityLevel.Level01
+    Lighting.GlobalShadows = false
+    Lighting.FogEnd = 9e9
+    Lighting.EnvironmentDiffuseScale = 0
+    Lighting.EnvironmentSpecularScale = 0
+
+    -- Ajuste de objetos do workspace
+    for _, obj in pairs(Workspace:GetDescendants()) do
+        if obj:IsA("BasePart") then
+            obj.Material = Enum.Material.Plastic
+            obj.CastShadow = false
+        elseif obj:IsA("ParticleEmitter") or obj:IsA("Trail") or obj:IsA("Smoke") or obj:IsA("Fire") then
+            obj.Enabled = false
+        end
+    end
+
+    -- Notificação opcional
+    pcall(function()
+        StarterGui:SetCore("SendNotification", {
+            Title = "Anti Lag",
+            Text = "Anti Lag ATIVADO",
+            Duration = 3
+        })
+    end)
+end
+
+--// FUNÇÃO PARA DESATIVAR ANTI LAG E RESTAURAR TUDO
+local function DesativarAntiLag()
+    if not AntiLagEnabled then return end
+    
+    print("🧊 Anti Lag DESATIVADO - Restaurando configurações...")
+
+    -- Restaura configurações gráficas originais
+    if ConfiguracoesOriginais.QualityLevel then
+        settings().Rendering.QualityLevel = ConfiguracoesOriginais.QualityLevel
+    else
+        settings().Rendering.QualityLevel = Enum.QualityLevel.Level21
+    end
+    
+    if ConfiguracoesOriginais.GlobalShadows ~= nil then
+        Lighting.GlobalShadows = ConfiguracoesOriginais.GlobalShadows
+    else
+        Lighting.GlobalShadows = true
+    end
+    
+    if ConfiguracoesOriginais.FogEnd then
+        Lighting.FogEnd = ConfiguracoesOriginais.FogEnd
+    else
+        Lighting.FogEnd = 100000
+    end
+    
+    if ConfiguracoesOriginais.EnvironmentDiffuseScale then
+        Lighting.EnvironmentDiffuseScale = ConfiguracoesOriginais.EnvironmentDiffuseScale
+    else
+        Lighting.EnvironmentDiffuseScale = 1
+    end
+    
+    if ConfiguracoesOriginais.EnvironmentSpecularScale then
+        Lighting.EnvironmentSpecularScale = ConfiguracoesOriginais.EnvironmentSpecularScale
+    else
+        Lighting.EnvironmentSpecularScale = 1
+    end
+
+    -- Restaura objetos do workspace
+    for _, obj in pairs(Workspace:GetDescendants()) do
+        if obj:IsA("BasePart") then
+            -- Restaura material original
+            if ConfiguracoesOriginais.PartMaterials[obj] then
+                obj.Material = ConfiguracoesOriginais.PartMaterials[obj]
+            else
+                obj.Material = Enum.Material.Plastic -- Fallback
+            end
+            
+            -- Restaura sombra original
+            if ConfiguracoesOriginais.PartCastShadow[obj] ~= nil then
+                obj.CastShadow = ConfiguracoesOriginais.PartCastShadow[obj]
+            else
+                obj.CastShadow = true -- Fallback
+            end
+        elseif obj:IsA("ParticleEmitter") then
+            if ConfiguracoesOriginais.ParticleEnabled[obj] ~= nil then
+                obj.Enabled = ConfiguracoesOriginais.ParticleEnabled[obj]
+            else
+                obj.Enabled = true -- Fallback
+            end
+        elseif obj:IsA("Trail") then
+            if ConfiguracoesOriginais.TrailEnabled[obj] ~= nil then
+                obj.Enabled = ConfiguracoesOriginais.TrailEnabled[obj]
+            else
+                obj.Enabled = true -- Fallback
+            end
+        elseif obj:IsA("Smoke") then
+            if ConfiguracoesOriginais.SmokeEnabled[obj] ~= nil then
+                obj.Enabled = ConfiguracoesOriginais.SmokeEnabled[obj]
+            else
+                obj.Enabled = true -- Fallback
+            end
+        elseif obj:IsA("Fire") then
+            if ConfiguracoesOriginais.FireEnabled[obj] ~= nil then
+                obj.Enabled = ConfiguracoesOriginais.FireEnabled[obj]
+            else
+                obj.Enabled = true -- Fallback
+            end
+        end
+    end
+
+    AntiLagEnabled = false
+    
+    -- Notificação
+    pcall(function()
+        StarterGui:SetCore("SendNotification", {
+            Title = "Anti Lag",
+            Text = "Configurações restauradas",
+            Duration = 3
+        })
+    end)
+    
+    print("✅ Configurações completamente restauradas")
+end
+
+-- ANTI LAG TOGGLE NA UI
+local function CreateAntiLagToggle()
+	local f = Instance.new("Frame", VisualsFrame)
+	f.Size = UDim2.new(0,300,0,45)
+	f.Position = UDim2.new(0,0,0,135)
+	f.BackgroundTransparency = 1
+
+	local label = Instance.new("TextLabel", f)
+	label.Size = UDim2.new(0,150,1,0)
+	label.BackgroundTransparency = 1
+	label.Text = "ANTI LAG"
+	label.Font = Enum.Font.Gotham
+	label.TextSize = 18
+	label.TextColor3 = Color3.fromRGB(170,0,255)
+	label.TextXAlignment = Enum.TextXAlignment.Left
+
+	local switch = Instance.new("TextButton", f)
+	switch.Size = UDim2.new(0,46,0,22)
+	switch.Position = UDim2.new(1,-50,0.5,-11)
+	switch.Text = ""
+	switch.BackgroundColor3 = Color3.fromRGB(40,40,40)
+	switch.AutoButtonColor = false
+	Instance.new("UICorner", switch).CornerRadius = UDim.new(1,0)
+
+	local ball = Instance.new("Frame", switch)
+	ball.Size = UDim2.new(0,18,0,18)
+	ball.Position = UDim2.new(0,2,0.5,-9)
+	ball.BackgroundColor3 = Color3.fromRGB(120,120,120)
+	Instance.new("UICorner", ball).CornerRadius = UDim.new(1,0)
+
+	local function refresh()
+		switch.BackgroundColor3 = AntiLagEnabled and Color3.fromRGB(170,0,255) or Color3.fromRGB(40,40,40)
+		ball.Position = AntiLagEnabled and UDim2.new(1,-20,0.5,-9) or UDim2.new(0,2,0.5,-9)
+	end
+
+	switch.MouseButton1Click:Connect(function()
+		if AntiLagEnabled then
+			DesativarAntiLag()
+		else
+			AtivarAntiLag()
+		end
+		refresh()
+	end)
+
+	refresh()
+end
+CreateAntiLagToggle()
+
+--------------------------------------------------
+-- MISC FRAME (AUTO GRAB COM FUNÇÃO COMPLETA)
+--------------------------------------------------
+local MiscFrame = Instance.new("Frame", Main)
+MiscFrame.Size = UDim2.new(0,320,0,280)
+MiscFrame.Position = UDim2.new(0,230,0,100)
+MiscFrame.BackgroundTransparency = 1
+MiscFrame.Visible = false
+
+-- AUTO GRAB VARIÁVEL E SISTEMA
+local AutoGrabEnabled = false
+local AutoGrabSystem = nil
+local ProximityPromptService = game:GetService("ProximityPromptService")
+
+--// FUNÇÃO PARA INICIAR O AUTO GRAB COMPLETO
+local function StartAutoGrab()
+    if AutoGrabSystem then return end
+    
+    print("🔥 AUTO GRAB ATIVADO")
+    
+    -- Sistema de Auto Grab
+    AutoGrabSystem = {
+        Running = true,
+        Connections = {},
+        TARGET_TOOL = "Flying Carpet" -- mude se quiser
+    }
+    
+    --// EQUIPAR FERRAMENTA
+    local function EquipTool()
+        local char = player.Character
+        if not char then return end
+
+        if char:FindFirstChild(AutoGrabSystem.TARGET_TOOL) then return end
+
+        local backpack = player:FindFirstChild("Backpack")
+        if backpack then
+            local tool = backpack:FindFirstChild(AutoGrabSystem.TARGET_TOOL)
+            if tool then
+                tool.Parent = char
+            end
+        end
+    end
+
+    --// PROCESSAR PROMPT
+    local function HandlePrompt(prompt)
+        if not AutoGrabSystem or not AutoGrabSystem.Running then return end
+
+        local text = (prompt.ActionText .. prompt.ObjectText):lower()
+        if not (text:find("grab") or text:find("take") or text:find("steal")) then
+            return
+        end
+
+        task.spawn(function()
+            local holding = false
+
+            while prompt and prompt.Parent and AutoGrabSystem and AutoGrabSystem.Running do
+                task.wait(0.1)
+
+                local pos
+                if prompt.Parent:IsA("Attachment") then
+                    pos = prompt.Parent.WorldPosition
+                elseif prompt.Parent:IsA("BasePart") then
+                    pos = prompt.Parent.Position
+                elseif prompt.Parent:IsA("Model") then
+                    pos = prompt.Parent:GetPivot().Position
+                end
+                if not pos then continue end
+
+                local dist = player:DistanceFromCharacter(pos)
+                local maxDist = prompt.MaxActivationDistance or 10
+
+                if dist <= maxDist then
+                    if not holding then
+                        EquipTool()
+                        task.wait(0.05)
+                        pcall(function()
+                            prompt:InputHoldBegin()
+                        end)
+                        holding = true
+                    end
+                else
+                    if holding then
+                        pcall(function()
+                            prompt:InputHoldEnd()
+                        end)
+                        holding = false
+                    end
+                end
+            end
+        end)
+    end
+
+    --// PROMPTS JÁ EXISTENTES
+    for _, obj in pairs(Workspace:GetDescendants()) do
+        if obj:IsA("ProximityPrompt") then
+            HandlePrompt(obj)
+        end
+    end
+
+    --// NOVOS PROMPTS
+    table.insert(AutoGrabSystem.Connections, Workspace.DescendantAdded:Connect(function(obj)
+        if obj:IsA("ProximityPrompt") then
+            HandlePrompt(obj)
+        end
+    end))
+
+    table.insert(AutoGrabSystem.Connections, ProximityPromptService.PromptShown:Connect(function(prompt)
+        HandlePrompt(prompt)
+    end))
+end
+
+--// FUNÇÃO PARA PARAR O AUTO GRAB
+local function StopAutoGrab()
+    if not AutoGrabSystem then return end
+    
+    print("🔥 AUTO GRAB DESATIVADO")
+    
+    AutoGrabSystem.Running = false
+    
+    -- Desconectar todas as conexões
+    for _, connection in ipairs(AutoGrabSystem.Connections) do
+        pcall(function()
+            connection:Disconnect()
+        end)
+    end
+    
+    AutoGrabSystem.Connections = {}
+    AutoGrabSystem = nil
+end
+
+-- AUTO GRAB TOGGLE (POSIÇÃO 0,0)
+local function CreateAutoGrabToggle()
+	local f = Instance.new("Frame", MiscFrame)
+	f.Size = UDim2.new(0,300,0,45)
+	f.Position = UDim2.new(0,0,0,0)
+	f.BackgroundTransparency = 1
+
+	local label = Instance.new("TextLabel", f)
+	label.Size = UDim2.new(0,150,1,0)
+	label.BackgroundTransparency = 1
+	label.Text = "AUTO GRAB"
+	label.Font = Enum.Font.Gotham
+	label.TextSize = 18
+	label.TextColor3 = Color3.fromRGB(170,0,255)
+	label.TextXAlignment = Enum.TextXAlignment.Left
+
+	local switch = Instance.new("TextButton", f)
+	switch.Size = UDim2.new(0,46,0,22)
+	switch.Position = UDim2.new(1,-50,0.5,-11)
+	switch.Text = ""
+	switch.BackgroundColor3 = Color3.fromRGB(40,40,40)
+	switch.AutoButtonColor = false
+	Instance.new("UICorner", switch).CornerRadius = UDim.new(1,0)
+
+	local ball = Instance.new("Frame", switch)
+	ball.Size = UDim2.new(0,18,0,18)
+	ball.Position = UDim2.new(0,2,0.5,-9)
+	ball.BackgroundColor3 = Color3.fromRGB(120,120,120)
+	Instance.new("UICorner", ball).CornerRadius = UDim.new(1,0)
+
+	local function refresh()
+		switch.BackgroundColor3 = AutoGrabEnabled and Color3.fromRGB(170,0,255) or Color3.fromRGB(40,40,40)
+		ball.Position = AutoGrabEnabled and UDim2.new(1,-20,0.5,-9) or UDim2.new(0,2,0.5,-9)
+	end
+
+	switch.MouseButton1Click:Connect(function()
+		AutoGrabEnabled = not AutoGrabEnabled
+		
+		if AutoGrabEnabled then
+			-- Inicia o sistema completo de Auto Grab
+			StartAutoGrab()
+		else
+			-- Para o sistema de Auto Grab
+			StopAutoGrab()
+		end
+		
+		refresh()
+	end)
+
+	refresh()
+end
+CreateAutoGrabToggle()
+
+-- TOGGLE PELO TECLADO (G = ligar/desligar Auto Grab)
+UserInputService.InputBegan:Connect(function(input, gpe)
+    if gpe then return end
+    if input.KeyCode == Enum.KeyCode.G then
+        AutoGrabEnabled = not AutoGrabEnabled
+        
+        if AutoGrabEnabled then
+            -- Inicia o sistema completo de Auto Grab
+            StartAutoGrab()
+        else
+            -- Para o sistema de Auto Grab
+            StopAutoGrab()
+        end
+        
+        -- Atualizar UI
+        for _, child in pairs(MiscFrame:GetChildren()) do
+            if child:IsA("Frame") then
+                local label = child:FindFirstChildOfClass("TextLabel")
+                if label and label.Text == "AUTO GRAB" then
+                    local switch = child:FindFirstChildOfClass("TextButton")
+                    if switch then
+                        switch.BackgroundColor3 = AutoGrabEnabled and Color3.fromRGB(170,0,255) or Color3.fromRGB(40,40,40)
+                        local ball = switch:FindFirstChildOfClass("Frame")
+                        if ball then
+                            ball.Position = AutoGrabEnabled and UDim2.new(1,-20,0.5,-9) or UDim2.new(0,2,0.5,-9)
+                        end
+                    end
+                end
+            end
+        end
+    end
+end)
+
+-- TOGGLE PELO TECLADO (L = ligar/desligar Anti Lag)
+UserInputService.InputBegan:Connect(function(input, gpe)
+    if gpe then return end
+    if input.KeyCode == Enum.KeyCode.L then
+        if AntiLagEnabled then
+            DesativarAntiLag()
+        else
+            AtivarAntiLag()
+        end
+        
+        -- Atualizar UI
+        for _, child in pairs(VisualsFrame:GetChildren()) do
+            if child:IsA("Frame") then
+                local label = child:FindFirstChildOfClass("TextLabel")
+                if label and label.Text == "ANTI LAG" then
+                    local switch = child:FindFirstChildOfClass("TextButton")
+                    if switch then
+                        switch.BackgroundColor3 = AntiLagEnabled and Color3.fromRGB(170,0,255) or Color3.fromRGB(40,40,40)
+                        local ball = switch:FindFirstChildOfClass("Frame")
+                        if ball then
+                            ball.Position = AntiLagEnabled and UDim2.new(1,-20,0.5,-9) or UDim2.new(0,2,0.5,-9)
+                        end
+                    end
+                end
+            end
+        end
+    end
+end)
+
+--------------------------------------------------
+-- APLICAR SPEED, JUMP E ATUALIZAR HELICÓPTERO
+--------------------------------------------------
+RunService.Heartbeat:Connect(function()
+	if not HRP or not Humanoid then return end
+	
+	-- Aplicar Speed CORRETAMENTE
+	local spd = 0
+	if SpeedEnabled1 then spd = SpeedValue1 end
+	if SpeedEnabled2 then spd = SpeedValue2 end
+	
+	if spd > 0 then
+		local dir = Humanoid.MoveDirection
+		HRP.AssemblyLinearVelocity = Vector3.new(dir.X*spd, HRP.AssemblyLinearVelocity.Y, dir.Z*spd)
+	end
+
+	-- Aplicar Jump (só se estiver ativado)
+	if JumpEnabled and UserInputService:IsKeyDown(Enum.KeyCode.Space) then
+		HRP.AssemblyLinearVelocity = Vector3.new(HRP.AssemblyLinearVelocity.X, 50, HRP.AssemblyLinearVelocity.Z)
+	end
+	
+	-- Atualizar velocidade do Helicóptero se estiver ativado
+	if HelicopteroEnabled and bodyAngularVelocity then
+		bodyAngularVelocity.AngularVelocity = Vector3.new(0, HelicopteroSpeed, 0)
+	end
+end)
+
+-- TOGGLE F PARA SPEED (ALTERNAR ENTRE SPEED 1 E SPEED 2)
+UserInputService.InputBegan:Connect(function(input, gpe)
+	if gpe then return end
+	if input.KeyCode == Enum.KeyCode.F then
+		-- Alternar entre os dois speeds
+		if not SpeedEnabled1 and not SpeedEnabled2 then
+			-- Se nenhum estiver ativo, ativa o Speed 1
+			SpeedEnabled1 = true
+			SpeedEnabled2 = false
+		elseif SpeedEnabled1 then
+			-- Se Speed 1 estiver ativo, muda para Speed 2
+			SpeedEnabled1 = false
+			SpeedEnabled2 = true
+		elseif SpeedEnabled2 then
+			-- Se Speed 2 estiver ativo, muda para Speed 1
+			SpeedEnabled2 = false
+			SpeedEnabled1 = true
+		end
+		
+		-- Atualiza a UI do hub
+		UpdateSpeedUI()
+	end
+end)
+
+--------------------------------------------------
+-- ABAS
+--------------------------------------------------
+local Tabs = { 
+	COMBAT = AutoBatFrame, 
+	MOVEMENT = MovementFrame,
+	VISUALS = VisualsFrame,
+	MISC = MiscFrame
+}
+
+for _,b in pairs(Menu:GetChildren()) do
+	if b:IsA("TextButton") then
+		b.MouseButton1Click:Connect(function()
+			for _,f in pairs(Tabs) do f.Visible=false end
+			if Tabs[b.Text] then Tabs[b.Text].Visible=true end
+		end)
+	end
+end
+
+--------------------------------------------------
+-- DRAG
+--------------------------------------------------
+local dragging,dragStart,startPos
+Main.InputBegan:Connect(function(i)
+	if i.UserInputType==Enum.UserInputType.MouseButton1 then
+		dragging=true
+		dragStart=i.Position
+		startPos=Main.Position
+		i.Changed:Connect(function()
+			if i.UserInputState==Enum.UserInputState.End then dragging=false end
+		end)
+	end
+end)
+
+UserInputService.InputChanged:Connect(function(i)
+	if dragging and i.UserInputType==Enum.UserInputType.MouseMovement then
+		local d=i.Position-dragStart
+		Main.Position=UDim2.new(startPos.X.Scale,startPos.X.Offset+d.X,startPos.Y.Scale,startPos.Y.Offset+d.Y)
+	end
+end)
+
+--------------------------------------------------
+-- MINIMIZAR HUB
+--------------------------------------------------
+local Minimized = false
+local FullSize = Main.Size
+
+local MinButton = Instance.new("TextButton", Main)
+MinButton.Size = UDim2.new(0,32,0,32)
+MinButton.Position = UDim2.new(1,-40,0,8)
+MinButton.BackgroundTransparency = 1
+MinButton.Text = "-"
+MinButton.Font = Enum.Font.GothamBold
+MinButton.TextSize = 26
+MinButton.TextColor3 = Color3.fromRGB(170,0,255)
+
+MinButton.MouseButton1Click:Connect(function()
+	Minimized = not Minimized
+	if Minimized then
+		MinButton.Text = "+"
+		Main.Size = UDim2.new(0,600,0,55)
+		Sub.Visible = false
+		TitleLine.Visible = false
+		Menu.Visible = false
+		VLine.Visible = false
+		for _,frame in pairs(Tabs) do frame.Visible = false end
+	else
+		MinButton.Text = "-"
+		Main.Size = FullSize
+		Sub.Visible = true
+		TitleLine.Visible = true
+		Menu.Visible = true
+		VLine.Visible = true
+	end
+end)
+
+-- Inicializa a UI
+UpdateSpeedUI()
+
+print("🎮 FLUXO HUB CARREGADO COM SUCESSO!")
+print("📌 Discord: discord.gg/G7upZYU58Q")
+print("🔥 Funcionalidades:")
+print("   ✅ AUTO BAT (Combat)")
+print("   ✅ SPEED x2 (Movement)")
+print("   ✅ JUMP (Movement)")
+print("   ✅ HELICOPTERO (Movement)")
+print("   ✅ ANT RAGDOLL (Movement)")
+print("   ✅ XRAY (Visuals)")
+print("   ✅ ESP ALL (Visuals)")
+print("   ✅ TIMER ESP (Visuals)")
+print("   ✅ ANTI LAG (Visuals)")
+print("   ✅ AUTO GRAB (Misc)")
+print("🎮 Teclas:")
+print("   F - Alternar Speed")
+print("   H - Anti Ragdoll")
+print("   L - Anti Lag")
+print("   G - Auto Grab")
